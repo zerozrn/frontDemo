@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自定义上下文菜单--contextmenu事件</title>
+    <link rel="stylesheet" href="contextMenu.css">
+</head>
+<body>
+<h3>自定义上下文菜单事件--仿照微信</h3>
+<ul class="contact-man" id="contextMenu">
+    <li>
+        <div class="fixed-width">
+            <img src="../imgs/handsome.jpg" alt="">
+        </div>
+        <div class="auto-width">
+            <div class="contact-message">
+                <div>
+                    <span class="contact-friend">糖糖</span>
+                    <span class="contact-time">15:00</span>
+                </div>
+                <p class="contact-info">十堰下好大的雪呀</p>
+            </div>
+        </div>
+    </li>
+    <li>
+        <img src="../imgs/handsome1.jpg" class="fixed-width" alt="">
+        <div class="auto-width">
+            <div class="contact-message">
+                <div>
+                    <span class="contact-friend">粉红色冰封球</span>
+                    <span class="contact-time">21:44</span>
+                </div>
+                <p class="contact-info">十堰下好大的雪呀</p>
+            </div>
+        </div>
+    </li>
+    <li>
+        <img src="../imgs/handsome2.jpeg" class="fixed-width" alt="">
+        <div class="auto-width">
+            <div class="contact-message">
+                <div>
+                    <span class="contact-friend">糖糖</span>
+                    <span class="contact-time">15:00</span>
+                </div>
+                <p class="contact-info">十堰下好大的雪呀</p>
+            </div>
+        </div>
+    </li>
+    <li>
+        <img src="../imgs/handsome3.jpeg" class="fixed-width" alt="">
+        <div class="auto-width">
+            <div class="contact-message">
+                <div>
+                    <span class="contact-friend">糖糖</span>
+                    <span class="contact-time">15:00</span>
+                </div>
+                <p class="contact-info">十堰下好大的雪呀</p>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="fixed-width">
+            <img src="../imgs/handsome.jpg" alt="">
+        </div>
+        <div class="auto-width">
+            <div class="contact-message">
+                <div>
+                    <span class="contact-friend">糖糖</span>
+                    <span class="contact-time">15:00</span>
+                </div>
+                <p class="contact-info">十堰下好大的雪呀</p>
+            </div>
+        </div>
+    </li>
+    <li>
+        <img src="../imgs/handsome1.jpg" class="fixed-width" alt="">
+        <div class="auto-width">
+            <div class="contact-message">
+                <div>
+                    <span class="contact-friend">粉红色冰封球</span>
+                    <span class="contact-time">21:44</span>
+                </div>
+                <p class="contact-info">十堰下好大的雪呀</p>
+            </div>
+        </div>
+    </li>
+    <li>
+        <img src="../imgs/handsome2.jpeg" class="fixed-width" alt="">
+        <div class="auto-width">
+            <div class="contact-message">
+                <div>
+                    <span class="contact-friend">糖糖</span>
+                    <span class="contact-time">15:00</span>
+                </div>
+                <p class="contact-info">十堰下好大的雪呀</p>
+            </div>
+        </div>
+    </li>
+    <li>
+        <img src="../imgs/handsome3.jpeg" class="fixed-width" alt="">
+        <div class="auto-width">
+            <div class="contact-message">
+                <div>
+                    <span class="contact-friend">糖糖</span>
+                    <span class="contact-time">15:00</span>
+                </div>
+                <p class="contact-info">十堰下好大的雪呀</p>
+            </div>
+        </div>
+    </li>
+</ul>
+<ul class="myMenu" id="myMenu">
+    <li>标为一睹</li>
+    <li>置顶聊天</li>
+    <li>删除该聊天</li>
+</ul>
+<script src="../js/exts/eventUtil.js"></script>
+<script>
+    eventUtil.addHandler(window, "load", function(event){
+        var contextMenu = document.getElementById("contextMenu"),
+        menu = document.getElementById("myMenu");
+
+        eventUtil.addHandler(contextMenu, "contextmenu", function(event){
+            event = eventUtil.getEvent(event);
+            eventUtil.preventDefault(event);
+            var target = eventUtil.getTarget(event),
+                parent = target.parentNode;
+            // 找到列表
+            while(parent.nodeName.toLowerCase() != "li"){
+                target = parent;
+                parent = target.parentNode;
+            }
+
+            menu.style.left = event.clientX + "px";
+            menu.style.top = event.clientY + "px";
+            menu.style.visibility = "visible";
+        });
+
+        eventUtil.addHandler(document, "click", function(event){
+            document.getElementById("myMenu").style.visibility = "hidden";
+        });
+    });
+
+</script>
+</body>
+</html>

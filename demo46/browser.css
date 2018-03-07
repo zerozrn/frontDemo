@@ -1,0 +1,25 @@
+body{
+    font-family: "Consolas", Helvetica, Arial, "Microsoft yahei", sans-serif;
+    font-size: 14px;
+}
+.container{
+    width: 1000px;
+    margin: 20px auto;
+    border: 1px solid #dcd9d9;
+}
+.title{
+    text-align: center;
+}
+pre,code{
+    padding: 0 15px;
+    line-height: 22px;
+    font-family: "Consolas";
+    background: #f3f3f3;
+}
+.item{
+    padding: 0 15px;
+    margin-bottom: 50px;
+}
+.item img{
+    max-width: 100%;
+}

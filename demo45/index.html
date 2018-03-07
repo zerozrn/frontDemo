@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>beforeunload事件</title>
+    <style>
+        .big-word{
+            font-size: 20px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+<span class="big-word">beforeunload事件</span>在浏览器卸载页面之前触发，可以通过它来取消卸载并继续使用原有页面。但是不能彻底取消这个事件，因为那就相对于让用户无法离开当前页面了。为此，
+这个事件的意图是把控制权交给用户。
+<script src="../js/exts/eventUtil.js"></script>
+<script>
+    eventUtil.addHandler(window, "beforeunload", function (event) {
+        event = eventUtil.getEvent(event);
+        var message = "I am really going to miss you if you go";
+        event.returnValue = message;  /* IE and Firebox */
+        return message;  /* Safari and chrome */
+    });
+</script>
+</body>
+</html>

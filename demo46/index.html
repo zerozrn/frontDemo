@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>浏览器窗口区域详解</title>
+    <link rel="stylesheet" href="browser.css">
+</head>
+<body>
+<h2 class="title">浏览器区域详解</h2>
+<div class="container">
+    <div class="item">
+        <h3>1、元素的客户区大小</h3>
+        <p>指的是元素内容（content）及其内边距（padding）所占据的空间大小。相关属性有两个：clientWidth、clientHeight。</p>
+        <p>clientWidth是元素内容区宽度加上左右内边距宽度；clientHeight是元素内容区高度加上上下内边距高度。</p>
+        <img src="../imgs/2.png" alt="客户区大小">
+        <p>由图看出，客户区大小就是元素内部空间大小，因此滚动条占用的空间不算在内。常用在确定浏览器视口大小的时候。</p>
+        <pre><code>
+var clientWidth = window.innerWidth || document.documentElement.clientWidth;
+var clientHeight = window.innerHeight || document.documentElement.clientHeight;
+        </code></pre>
+        <img src="../imgs/1.png" alt="浏览器视口大小">
+    </div>
+    <div class="item">
+        <h3>2、元素的可见大小</h3>
+        <p>元素的可见大小由其高度、宽度决定，包括所有内边距、滚动条和边框大小（不包括外边距）。</p>
+        <p>偏移量，包括元素在在屏幕上占用的所有可见的空间。</p>
+        <p>offsetWidth：元素在水平方向上占用的空间大小，包括元素的宽度、（可见的）垂直滚动条的宽度、左边框宽度和右边框宽度。</p>
+        <p>offsetHeight：元素在垂直方向上占用的空间大小，包括元素的高度、（可见的）水平滚动条的高度、上边框的宽度和下边框的宽度。</p>
+        <p>offsetLeft：元素的左外边框至包含元素的左内边框之间的像素距离。</p>
+        <p>offsetTop：元素的上外边框至包含元素的上内边框之间的像素距离。</p>
+        <img src="../imgs/3.png" alt="偏移量--元素的可见大小">
+        <p>以下是求某个元素在浏览器视口区域的偏移量的函数，原理即将此元素的offsetLeft和offsetTop与其offsetParent的相同属性相加，循环至根元素。</p>
+        <p>求元素的左偏移量</p>
+        <pre><code>
+function getElementLeft(element) {
+    var actualLeft = element.offsetLeft,
+        current = element.offsetParent;
+    while (current !== null) {
+        actualLeft += current.offsetLeft;
+        current = current.offsetParent;
+    }
+    return actualLeft;
+}
+        </code></pre>
+        <p>求元素的上偏移量</p>
+        <pre><code>
+function getElementTop(element) {
+    var actualTop = element.offsetTop,
+        current = element.offsetParent;
+    while (current !== null) {
+        actualTop += current.offsetTop;
+        current = current.offsetParent;
+    }
+    return actualTop;
+}
+        </code></pre>
+    </div>
+    <div class="item">
+        <h3>3、元素的滚动大小</h3>
+        <p>指的是包含滚动内容的元素的大小（确定元素的实际大小）。</p>
+        <p>scrollWidth：在没有滚动条的情况下，元素内容的总宽度。</p>
+        <p>scrollHeight：在没有滚动条的情况下，元素内容的总高度。</p>
+        <p>scrollLeft：被隐藏在内容区域左侧的像素数。通过设置这个属性可以改变元素的滚动位置。</p>
+        <p>scrollTop：被隐藏在内容上方的像素数。通过设置这个属性可以改变元素的滚动位置。</p>
+        <img src="../imgs/4.png" alt="元素的滚动大小">
+        <p>在确定文档的总高度时，为了能保证在跨浏览器环境下得到精确的结果，必须取得scrollWidth/clientWidth和scrollHeight/clientHeight的最大值。</p>
+        <pre><code>
+var doc = document.documentElement,
+    docWidth = Math.max(doc.scrollWidth, doc.clientWidth),
+    docHeight = Math.max(doc.scrollHeight, doc.clientHeight);
+        </code></pre>
+    </div>
+    <div class="item">
+        <h3>4、窗口位置</h3>
+        <p>指的是浏览器窗口相对于电脑屏幕的位置。</p>
+        <p>screenLeft：浏览器窗口相对于屏幕左边的位置。</p>
+        <p>screenTop：浏览器窗口相对于屏幕右边的位置。</p>
+        <p>在firebox中，用screenX和screenY表示。</p>
+        <p>以下是跨浏览器获取窗口左边和上边的位置：</p>
+        <pre><code>
+var screenLeft = window.screenLeft,
+    screenTop = window.screenTop,
+    leftPos = (typeof screenLeft == "number") ? screenLeft : window.screenX,
+    topPos = (typeof screenTop == "number") ? screenTop : window.screenY;
+        </code></pre>
+    </div>
+    <div class="item">
+        <h3>5、触发鼠标事件时鼠标的位置</h3>
+        <p>（1）clientX和clientY</p>
+        <p>指的是事件发生时鼠标指针在视口中的水平坐标和垂直坐标。</p>
+        <p>（2）pageX和pageY</p>
+        <p>指的是鼠标指针在页面中的位置，在页面没有滚动时，pageX与clientX相等，pageY与clientY相等。那么页面滚动时，pageX与clientX、pageY与clientY的关系如下：</p>
+        <p>pageX = clientX + scrollLeft</p>
+        <p>pageY = clientY + scrollTop</p>
+        <p>IE8及更早版本不支持事件对象上的页面坐标，那么计算过程如下：</p>
+        <pre><code>
+var myBox = document.getElementById("myBox");
+myBox.onclick = function (event) {
+    var pageX = event.pageX,
+        pageY = event.pageY,
+        body = document.body,
+        html = document.documentElement;
+    if (pageX === undefined) {
+        pageX = event.clientX + (body.scrollLeft || html.scrollLeft);
+    }
+    if (pageY === undefined) {
+        pageY = event.clientY + (body.scrollTop || html.scrollTop);
+    }
+    console.log("Page coordinates:" + pageX + "," + pageY);
+};
+        </code></pre>
+        <p>（3）offsetX和offsetY</p>
+        <p>指的是事件发生时，鼠标指针相对于事件目标对象的水平坐标和垂直坐标。</p>
+        <img src="../imgs/6.png" alt="鼠标指针相对于事件目标的坐标">
+        <p>（4）screenX和screenY</p>
+        <p>指的是鼠标事件发生时，鼠标指针相对于整个屏幕的坐标信息。</p>
+        <p>如下图所示：</p>
+        <img src="../imgs/5.png" alt="鼠标指针相对于电脑屏幕的坐标">
+    </div>
+</div>
+</body>
+</html>

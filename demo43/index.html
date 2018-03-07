@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>拖动文件上传</title>
+    <style>
+        .drag{
+            width: 400px;
+            height: 200px;
+            margin: 50px auto;
+            text-align: center;
+            line-height: 200px;
+            border: 2px solid #25aacd;
+        }
+        img{
+            max-width: 150px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="drag" id="dragTarget">Drag some files of pictures here.</div>
+<script src="../js/exts/eventUtil.js"></script>
+<script src="../js/exts/createXHR.js"></script>
+<script src="dragUpload.js"></script>
+</body>
+</html>

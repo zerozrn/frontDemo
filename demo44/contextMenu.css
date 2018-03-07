@@ -1,0 +1,62 @@
+body{
+    font-size: 14px;
+    font-family: "Consolas", Helvetica, Arial, "Microsoft yahei", sans-serif;
+}
+.contact-man{
+    width: 375px;
+    height: 500px;
+    list-style: none;
+    padding: 0;
+    border: 1px solid #dcd9d9;
+    overflow-y: scroll;
+}
+.contact-man > li{
+    padding: 10px;
+    overflow: hidden;
+}
+.contact-man > li:not(:last-child){
+    border-bottom: 1px solid #dcd9d9;
+}
+.fixed-width{
+    width: 50px;
+    height: 50px;
+    float: left;
+    margin-right: -70px;
+}
+.fixed-width img{
+    max-width: 100%;
+    height: 100%;
+}
+.auto-width{
+    width: 100%;
+}
+.contact-message{
+    margin-left: 70px;
+}
+.contact-friend{
+    font-size: 16px;
+    font-weight: 600;
+}
+.contact-time{
+    float: right;
+    font-size: 12px;
+    color: #999;
+}
+.contact-info{
+    margin: 10px 0 0;
+}
+.myMenu{
+    position: absolute;
+    padding: 0;
+    visibility: hidden;
+    list-style: none;
+    background-color: #fff;
+    box-shadow: 0 0 8px 1px rgba(156,152,152,.4);
+}
+.myMenu > li{
+    width: 90px;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 15px;
+    background-color: #fff;
+}

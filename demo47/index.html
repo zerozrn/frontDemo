@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1,user-scalable=no">
+    <title>触摸和手势事件</title>
+    <style>
+        html{
+            font-size: 62.5%;
+        }
+        body{
+            font-size: 1.6rem;
+        }
+        #myDrag{
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: #f05a59;
+        }
+    </style>
+</head>
+<body>
+<h3>触摸和手势事件</h3>
+<div id="output">
+
+</div>
+<input type="button" id="myBtn" value="Click Me">
+<div id="myDrag"></div>
+<script src="../js/exts/eventUtil.js"></script>
+<script>
+    function handleTouchEvent(event) {
+        if (event.touches.length == 1) {
+            var output = document.getElementById("output");
+            switch (event.type) {
+                case "touchstart":
+                    output.innerHTML = "start " + event.touches[0].clientX + ", " + event.touches[0].clientY;
+                    break;
+                case "touchend":
+                    output.innerHTML += "<br/>end " + event.changedTouches[0].clientX + ", " + event.changedTouches[0].clientY;
+                    break;
+                case "touchmove":
+                    event.preventDefault();
+                    output.innerHTML += "<br/>move " + event.changedTouches[0].clientX + ", " + event.changedTouches[0].clientY;
+                    break;
+            }
+        }
+    }
+
+    eventUtil.addHandler(document, "touchstart", handleTouchEvent);
+    eventUtil.addHandler(document, "touchend", handleTouchEvent);
+    eventUtil.addHandler(document, "touchmove", handleTouchEvent);
+</script>
+</body>
+</html>

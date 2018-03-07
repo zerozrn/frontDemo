@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js疑惑代码解读</title>
+    <style>
+        body{
+            font-family: "Consolas", Helvetica, Arial, "Microsoft yahei", sans-serif;
+            font-size: 14px;
+        }
+        pre{
+            white-space: pre-wrap;
+        }
+        pre,code{
+            width: 50%;
+            padding: 0 15px;
+            font-family: "Consolas";
+            line-height: 23px;
+            background-color: #f3f3f3;
+        }
+        h2{
+            text-align: center;
+        }
+        .container{
+            width: 70%;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #dcd9d9;
+        }
+        .item{
+            margin-bottom: 50px;
+        }
+        .item p{
+            line-height: 25px;
+        }
+        .code{
+            padding: 2px 4px;
+            color: #c7254e;
+            background-color: #f9f2f4;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+<h2>JavaScript疑惑代码解读</h2>
+<div class="container">
+    <div class="item">
+        <h3>1、对象的键的问题</h3>
+        <pre><code>
+var a = {},
+    b = {"key": 1},
+    c = {"key": 1};
+a[b] = 123;
+a[c] = 456;
+console.log(a[b]);
+        </code></pre>
+        <p>结果打印出“456”，这是因为b和c均是对象，而用对象作为作为key时，先是会被隐式转换成字符串，其值为<span class="code">[object object]</span>，所以a[b]其实是<span class="code">a.[object object]</span>，a[c]同样，相当于重写了a[b],所以a[b]输出结果是“456”。</p>
+    </div>
+    <div class="item">
+        <h3>2、return的简单问题</h3>
+        <pre><code>
+function xx() {
+    var aa = 0;
+    return
+    aa;
+}
+console.log(xx());
+        </code></pre>
+        <p>以上代码打印结果是“undefined”，它等同于下面的代码：</p>
+        <pre><code>
+function xx() {
+    var aa = 0;
+    <span style="color: red">return;</span>
+    aa;
+}
+console.log(xx());
+        </code></pre>
+        <p>浏览器解析的时候，会自动在return后面添加上一个分号，表示一句话结束，自然是没有返回值了，即“undefined”。</p>
+    </div>
+    <div class="item">
+        <h3>3、this的经典问题</h3>
+        <pre><code>
+var name="The Window";
+var object={
+    name:"My Object",
+    getNameFunc:function () {
+        console.log(this);  // object
+        return function () {
+            console.log(this); // window
+            return this.name;
+        }
+    }
+};
+console.log(object.getNameFunc()());  // "The Window"（在非严格模式下）
+        </code></pre>
+        <p>毫无疑问，输出结果是“The Window”。this对象是在运行时基于函数的执行环境绑定的；在全局函数中，this等于window；而当函数被当做某个对象的方法调用时，this等于那个对象。不过。匿名函数的执行具有全局性，因此其this对象通常指向window，除非利用apply()或者call()改变函数的执行环境。在这个例子中，this出现在对象方法中的匿名函数中，这个匿名函数在搜索this时，只搜索到其活动对象，不可能会访问到外部函数中的this，由此this指向window，那么输出window变量“The Window”。</p>
+    </div>
+</div>
+<script>
+
+</script>
+</body>
+</html>
