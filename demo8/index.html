@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js--返回字符串中没有重复字符的最长子串的长度</title>
+</head>
+<body>
+<div>字符串: <span id="string">aaasfgwd</span>,它的没有重复字符的子串的最大长度是<span id="str"></span></div>
+<div></div>
+<script>
+    function getStr(str) {
+        var now = 0; //指向当前位置
+        var maxLength = 0; //最大长度
+        var arr = []; //map,存放已经出现的字符及其字符所在位置
+        for (var i = 0; i < str.length; i++) {
+            // map()方法遍历返回所有的字符
+            var a = arr.map(function (arr) {
+                return arr.char;
+            });
+            if (a) {
+                a.forEach(function (value, index) {
+                    if (value == str[i]) {
+                        // 选择大的位置作为指针指向的位置
+                        now = now > index + 1 ? now : index + 1;
+                    } else {
+
+                    }
+                    if ((i - now + 1) > maxLength) {
+                        maxLength = i - now + 1;
+                    }
+                });
+            }
+            //添加map
+            arr.push({
+                char: str[i],
+                index: i
+            });
+        }
+        return maxLength;
+    }
+
+    var str = document.getElementById("string");
+    var l = getStr(str.innerHTML);
+    document.getElementById("str").innerHTML = l;
+
+
+
+    //解析下面的代码,说出打印结果
+    var name = "window";
+    var obj = {
+        name: "My Object",
+        getFunctionName: function () {
+            return function () {
+                // 此处this指的是Window对象
+                console.log(this);
+                return this.name;
+            }
+        }
+    };
+    console.log(obj.getFunctionName()());
+
+</script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js闭包</title>
+    <style>
+        pre,code{
+            font-family: "Courier New";
+            background-color: #f3f3f3;
+            line-height: 25px;
+            width: 50%;
+        }
+    </style>
+</head>
+<body>
+<h3>js闭包</h3>
+<p>典型的闭包</p>
+<pre>
+    <code>
+        // 典型的闭包
+        var scope="global scope";
+        function f1() {
+            var scope="local scope";
+            function f2() {
+                return scope;
+            }
+            return f2();
+        }
+        console.log(f1());
+    </code>
+</pre>
+<p>另外一种写法如下:</p>
+<pre>
+    <code>
+        // 对上述代码稍加改变，结果是。。。
+        var scope1="global scope";
+        function foo1() {
+            var scope1="local scope";
+            function foo2() {
+                return scope1;
+            }
+            return foo2;
+        }
+        console.log(foo1()());
+    </code>
+</pre>
+<p>两种写法的结果均为local scope,可打开console查看结果</p>
+<script>
+    // 典型的闭包
+    var scope="global scope";
+    function f1() {
+        var scope="local scope";
+        function f2() {
+            return scope;
+        }
+        return f2();
+    }
+    console.log(f1());
+
+    // 对上述代码稍加改变，结果是。。。
+    var scope1="global scope";
+    function foo1() {
+        var scope1="local scope";
+        function foo2() {
+            return scope1;
+        }
+        return foo2;
+    }
+    console.log(foo1()());
+</script>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>css水平居中</title>
+    <style>
+        .container h2 {
+            text-align: center;
+        }
+
+        .container pre {
+            background-color: #f3f3f3;
+            width: 80%;
+            margin-left: 30px;
+        }
+
+        .container code {
+            font-family: "Cordia New";
+            font-size: 22px;
+        }
+
+        .item1 {
+            width: 1200px;
+            height: auto;
+            border: 1px solid #25aacd;
+            margin: auto;
+            padding: 25px;
+            box-sizing: border-box;
+        }
+
+        .item2 {
+            width: 90%;
+            height: auto;
+            border: 1px solid #25aacd;
+            padding: 25px;
+            margin-left: 5%;
+            box-sizing: border-box;
+        }
+
+        .item3 {
+            position: relative;
+            width: 1200px;
+            height: auto;
+            left: 50%;
+            margin-left: -600px;
+            border: 1px solid #25aacd;
+            padding: 25px;
+            box-sizing: border-box;
+        }
+
+        .item4 {
+            display: flex;
+            justify-content: center;
+        }
+
+        .item4 .item {
+            width: 1000px;
+            height: auto;
+            border: 1px solid #25aacd;
+            padding: 25px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>css如何实现水平居中</h2>
+        <h4>一、使用<strong style="color:red">margin:auto</strong>属性</h4>
+        <div class="item1">我是居中的div，使用的是margin:auto属性.代码如下：<br/>
+            <pre>
+                <code>
+                .item1{
+                    width: 1200px;
+                    height: 50px;
+                    background-color: #25aacd;
+                    margin: auto;
+                }
+                </code>
+            </pre>
+        </div>
+        <h4>二、设置<strong style="color: red;">margin-left: （父宽度-本身宽度）/2</strong>属性（已知父元素和本身宽度）</h4>
+        <div class="item2">
+            我是居中的div，我知道我的父亲有多宽，我也知道我自己有多宽，并且我们宽度的单位是一致的。代码如下：
+            <pre>
+                <code>
+                .item2{
+                    width: 90%;
+                    height: auto;
+                    border: 1px solid #25aacd;
+                    padding: 25px;
+                    margin-left: 5%;
+                    box-sizing: border-box;
+                }
+                </code>
+            </pre>
+        </div>
+        <div style="min-height: 400px;">
+            <h4>三、position属性</h4>
+            <div class="item3">
+                我是使用相对定位居中的div,具体代码如下：
+                <pre>
+                    <code>
+                    .item3{
+                        position: relative/absolute/inherit;
+                        width: 1200px;
+                        height: auto;
+                        left: 50%;
+                        margin-left: -600px;
+                        border: 1px solid #25aacd;
+                        padding: 25px;
+                        box-sizing: border-box;
+                    }
+                    </code>
+                </pre>
+            </div>
+        </div>
+        <h4>四、flex属性值实现</h4>
+        <div class="item4">
+            <div class="item">我要居中，需要设置我的父亲的css属性。代码如下：
+                <pre>
+                    <code>
+                        .item4{
+                            display: flex;
+                            justify-content: center;
+                        }
+                        .item4 .item{
+                            width: 1000px;
+                            height: auto;
+                            border: 1px solid #25aacd;
+                            padding: 25px;
+                            box-sizing: border-box;
+                        }
+                    </code>
+                </pre>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

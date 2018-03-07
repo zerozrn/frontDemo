@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css实现垂直居中</title>
+    <style>
+        .container h1 {
+            text-align: center;
+        }
+
+        .item1 {
+            height: 60px;
+            border: 1px solid #25aacd;
+            line-height: 60px;
+        }
+
+        .item2 {
+            height: 200px;
+            border: 1px solid #25aacd;
+        }
+
+        .item2 .item {
+            width: 50%;
+            height: 60px;
+            margin-top: 70px;
+            background-color: #25aacd;
+        }
+
+        .item3 {
+            position: relative;
+            height: 300px;
+            border: 1px solid #25aacd;
+        }
+
+        .item3 .item {
+            position: absolute;
+            top: 50%;
+            height: 200px;
+            margin-top: -100px;
+            background-color: #25aacd;
+        }
+
+        .item4 {
+            height: 1000px;
+            width: 1000px;
+            border: 1px solid #25aacd;
+            text-align: center;
+        }
+
+        .item4 img {
+            vertical-align: middle;
+        }
+
+        .item4 .imgNull {
+            width: 0;
+            height: 100%;
+        }
+
+        .item5 {
+            display: table;
+            width: 80%;
+            height: 300px;
+            border: 1px solid #25aacd;
+        }
+
+        .item5 .item {
+            display: table-cell;
+            vertical-align: middle;
+            background-color: #f05a59;
+        }
+
+        .item6 {
+            position: relative;
+            height: 700px;
+            border: 1px solid #25aacd;
+        }
+
+        .item6 .item {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            margin: auto;
+            /*   此种方法适合图片,对其他块元素无效  */
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>css实现垂直居中</h1>
+    <h4>一、用<strong style="color: red;">line-height</strong>（仅适用于单行文本）</h4>
+    <div class="item1">我是单行文本，我垂直居中了</div>
+    <h4>二、margin-top属性设置（已知父元素的高度和自身高度）</h4>
+    <div class="item2">
+        <div class="item">我垂直居中了，我知道我父亲的高度，我也知道自己有多高</div>
+    </div>
+    <h4>三、采用绝对定位(已知自身高度)</h4>
+    <div class="item3">
+        <div class="item">我垂直居中了,使用绝对定位</div>
+    </div>
+    <h4>四、垂直居中一张图片(行内元素)</h4>
+    <div class="item4">
+        <img class="item" src="../imgs/bawei.jpg" alt="巴卫" title="巴卫大人"/>
+        <img class="imgNull"/>
+    </div>
+    <div>说明:这里用了一个空的img标签,其实vertical-align这个属性的特点，它是相对兄弟级行高（line-height）来定位,并且他仅对行内元素有效，所以，在要定位的元素后面加多一个行内元素img来撑开父级的行高，以此来居中。然后必须强调你一点，记得把后面img的src=""这个空属性去掉，不然会留下一个空白框。</div>
+    <h4>五、自身高度未知的情况下的块级元素居中display和vertical-align两个属性</h4>
+    <div class="item5">
+        <div class="item">我垂直居中了,但是我不知道我有多高,很神奇吧我垂直居中了,但是我不知道我有多高,很神奇吧我垂直居中了,但是我不知道我有多高,很神奇吧</div>
+        <div>啥情况,为啥整个父亲都变色了</div>
+    </div>
+    <h4>六、另外一种绝对定位居中,父元素高度和自身高度均未知</h4>
+    <div class="item6">
+        <img class="item" src="../imgs/bawei.jpg"/>
+    </div>
+</div>
+</body>
+</html>
