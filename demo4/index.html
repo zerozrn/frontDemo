@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css控制文本显示一行,溢出省略</title>
+    <style type="text/css">
+        .ellipsis{
+            width:800px;  /* 宽度必须指定,否则无法在某个地方开始省略 */
+            margin:100px auto;
+            background-color:black;
+            color:#f05a59;
+            font-weight:bold;
+            padding:10px 30px;
+            white-space:nowrap;
+            text-overflow:ellipsis;
+            overflow:hidden;
+            display:inline-block;
+        }
+    </style>
+</head>
+<body>
+<div class="ellipsis" title="神谷浩史我男神">神谷浩史高中时期是理科生，加入青二塾以前只是一般地看着动画，没有想要成为声优的念头。一直是空手道部的成员，小学时茶带，高中时已是黑带，高三夏天参加县大会后于6月份从社团隐退。</div>
+</body>
+</html>

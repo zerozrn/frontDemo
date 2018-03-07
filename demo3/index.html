@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--  设置网页指定的文件模式为IE9  -->
+    <meta http-equiv="X-UA-Compatible" content="IE=9">
+    <title>让彩色图片变成黑白的</title>
+</head>
+<style>
+    img{
+        width: 600px;
+        height: 400px;
+    }
+
+    .gray {
+        -webkit-filter: grayscale(100%);
+           -moz-filter: grayscale(100%);
+            -ms-filter: grayscale(100%);
+             -o-filter: grayscale(100%);
+                filter: grayscale(100%);
+                filter: gray;
+    }
+</style>
+<body>
+<img src="../imgs/a.jpg" />
+<img src="../imgs/a.jpg" class="gray" />
+<p>IE8也支持</p>
+</body>
+</html>
