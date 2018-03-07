@@ -1,0 +1,79 @@
+code {
+    font-family: "Courier New", Helvetica, sans-serif;
+    padding: 2px 10px;
+    background-color: #ddd;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.condition > li {
+    line-height: 28px;
+}
+
+.container {
+    width: 300px;
+    background-color: #25aacd;
+    padding: 15px 0;
+}
+
+.container p {
+    background-color: deeppink;
+    margin: 15px 0;
+}
+
+.container p:nth-child(2) {
+    margin-top: 30px;
+}
+
+.new-box {
+    overflow: hidden; /* 创建一个新的BFC防止外边距折叠 */
+}
+
+.container > .float {
+    width: 200px;
+    height: 100px;
+    float: left;
+}
+
+.container > .float:first-child {
+    background-color: lightpink;
+}
+
+.container > .float:last-child {
+    background-color: greenyellow;
+}
+
+.surround {
+    width: 40%;
+    padding: 10px 0;
+    border: 1px solid #7799bb;
+}
+
+.surround > div,
+.surround > img {
+    float: left;
+    width: 100px;
+    height: 100px;
+    background: rgba(100, 180, 200, .3);
+}
+
+.surround > p {
+    background-color: #312e2e;
+    color: #fff;
+}
+
+.multi-columns div {
+    width: 31.33%;
+    height: 200px;
+    background-color: #25aacd;
+    float: left;
+    margin: 0 1%;
+}
+
+.multi-columns div:last-child {
+    /* 创建新的BFC让它适应此布局，但是会造成之间的间距不一致 */
+    float: none;
+    overflow: hidden;
+}

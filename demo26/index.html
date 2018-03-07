@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css浮动初步了解</title>
+    <style>
+        .container{
+            width: 800px;
+            height: auto;
+            padding: 1em;
+            border: 1px solid #312e2e;
+        }
+
+        .w50{
+            width: 50%;
+        }
+
+        .bg1{
+            background-color: #25aacd;
+        }
+
+        .bg2{
+            background-color: #f05a59;
+        }
+
+        .bg3{
+            background-color: #fb3;
+        }
+
+        .bg4{
+            background-color: yellowgreen;
+        }
+
+        .box{
+            width: 100px;
+            height: 100px;
+        }
+
+        .box1{
+            height: 210px;
+        }
+
+        .box4{
+            height: 160px;
+        }
+
+        .box1,
+        .box4
+        {
+            float: right;
+        }
+
+        .box3{
+            display: inline-block;
+        }
+
+        .box6,
+        .box14{
+            width: 120px;
+            height: 120px;
+        }
+
+        .box5,
+        .box8,
+        .box9,
+        .box10,
+        .box11,
+        .box12,
+        .box13,
+        .box14{
+            float: left;
+        }
+
+        .left-half{
+            float: left;
+            border-right: 1px solid #000;
+            box-sizing: border-box;
+        }
+
+        .small-w{
+            width: 240px;
+        }
+    </style>
+</head>
+<body>
+<h2>css浮动初步了解</h2>
+<h4>1 向右浮动</h4>
+<div class="container">
+    <div class="box bg1 box1">box1，我向右浮动</div>
+    <div class="box bg2">box2</div>
+    <div class="box bg3 box3">box3</div>
+    <div class="box bg4 box4">box4，我也向右浮动</div>
+</div>
+<p>box1向右浮动，直到其右边缘碰到父元素的右边缘，它脱离了文档流，因此box2和box3向上平移box1的高度。
+    box4也向右移动，直到其右边碰到box1的左边缘，由于box3设置了inline-block，所以其顶部与box3在同
+    一水平线上。若是未给box3设置inline-block，则其顶部会与box3的底部在同一水平线，这是块元素与行
+    内元素的区别之一。
+</p>
+<strong>注：从上面文字排列的板式可以看出，float的元素虽然脱离了文档流，但是依旧占据着它原本的位置，导致文字还没到右边缘就换行显示了。要想解决这个问题，可以清除浮动，设置文字元素clear:both/right;</strong>
+<h4>2 向左浮动</h4>
+<div class="container" style="overflow: hidden;">
+    <div class="w50 left-half">
+        <div class="box bg1 box5">box5，我左浮动</div>
+        <div class="box bg2 box6">box6</div>
+        <div class="box bg3">box7</div>
+    </div>
+    <div class="w50" style="float:left;">
+        <div class="box bg1 box8">box8</div>
+        <div class="box bg2 box9">box9</div>
+        <div class="box bg3 box10">box10</div>
+    </div>
+</div>
+<p>左侧，box5左浮动，于是box6和box7集体向上平移box5的高度，box6被box5覆盖。若两者宽高一致，则box6完全被覆盖。</p>
+<p>右侧，三个元素均左浮动，于是像列表一样横向排列，box5直到碰到父元素左边框，另外两个元素直到碰到前一个元素右边缘。</p>
+<h4>3 卡住</h4>
+<div class="container small-w" style="overflow: hidden;float: left;margin-right: 20px">
+    <div class="box bg1 box11">box11</div>
+    <div class="box bg2 box12">box12</div>
+    <div class="box bg3 box13">box13</div>
+</div>
+<div class="container small-w" style="overflow: hidden;float:left;">
+    <div class="box bg1 box14">box14</div>
+    <div class="box bg2 box12">box12</div>
+    <div class="box bg3 box13">box13</div>
+</div>
+<div style="clear: both;"><strong>我是为了清除浮动而存在的，不然下面文字会紧贴着上面第二个框显示，所以可以设置clear:both/left;来清除浮动</strong></div>
+<p>左侧，子元素宽度之和大于父元素的宽度，则没有足够空间显示的元素会换行排列（子元素宽高一致）。</p>
+<p>右侧，子元素宽高有不一致的，元素向下移动时被尺寸大点的元素卡住。box13的宽高小于box14，它向下移动时被box14卡住了。</p>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css浮动导致父元素高度塌陷的解决的办法</title>
+    <style>
+        .container {
+            width: 20%;
+            border: 2px solid #312e2e;
+        }
+
+        .box {
+            width: 50%;
+            height: 100px;
+        }
+
+        .bg1 {
+            background-color: #25aacd;
+        }
+
+        .bg2 {
+            background-color: #f05a59;
+        }
+
+        .fl {
+            float: left;
+        }
+
+        .clear {
+            clear: both;
+        }
+
+        .clearfix:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+<h2>css浮动导致父元素高度塌陷的解决的办法</h2>
+<div class="container">
+    <div class="box bg1 fl">box1</div>
+    <div class="box bg2 fl">box2</div>
+</div>
+<div class="clear">在上图中，给box1和box2的父元素设置高，却发现高度为0，一说高度塌陷，而其子元素高度为100px。</div>
+<h4>如何解决高度塌陷问题呢？以下是几种解决方案：</h4>
+<p>1 直系父元素也浮动</p>
+<div class="container fl">
+    <div class="box bg1 fl">box1</div>
+    <div class="box bg2 fl">box2</div>
+</div>
+<div class="clear">弊端：影响布局，其后的元素会受浮动影响，又必须要清除浮动，也不可能一层一层往上都设置浮动属性，同时margin:auto;会失效。</div>
+<p class="clear">2 直系父元素display:inline-block;</p>
+<div class="container" style="display: inline-block;">
+    <div class="box bg1 fl">box1</div>
+    <div class="box bg2 fl">box2</div>
+</div>
+<div>弊端：margin:auto;失效。</div>
+<p>3 直系父元素overflow:hidden;</p>
+<div class="container" style="overflow: hidden;">
+    <div class="box bg1 fl" style="width: 110%">box1box2box1box1box1box1box1box1box1box1box10box1box1box1</div>
+    <div class="box bg2 fl">box2</div>
+</div>
+<div>弊端：如果子元素尺寸大于父元素，超出部分会被隐藏不显示，如上图所示。</div>
+<p>4 给父元素设置高度</p>
+<div class="container" style="height: 120px">
+    <div class="box bg1 fl">box1</div>
+    <div class="box bg2 fl">box2</div>
+</div>
+<div>弊端：在未知的子元素高度的情况下，无法给父元素设置固定的高度，更何况子元素若是动态生成的，更没有办法知道高度了。</div>
+<p>5 在父元素结束前加一个空的clear:both的div</p>
+<div class="container">
+    <div class="box bg1 fl">box1</div>
+    <div class="box bg2 fl">box2</div>
+    <div class="clear"></div>
+</div>
+<div>弊端：增加了空的标签，违背结构与表现分离的标准。若是有若干个浮动元素，更不可能在每个地方都写一遍，阅读星也很差。</div>
+<p>6 在父元素加伪类清除浮动</p>
+<div class="container clearfix">
+    <div class="box bg1 fl">box1</div>
+    <div class="box bg2 fl">box2</div>
+</div>
+<div style="color: green;">这种方法算是比较好的了，跟高度没关系，又不会增加空的标签，更是将结构与表现分离的原则始终贯彻着。</div>
+</body>
+</html>

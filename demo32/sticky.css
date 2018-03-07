@@ -1,0 +1,127 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: 100%;
+}
+
+.site-body {
+    display: flex;
+    flex-direction: column;
+    font: 400 1em/1.4 'Open Sans', sans-serif;
+    color: #404040;
+    height: 100%;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5em;
+    background-color: #f4f3f0;
+}
+
+.header h1 i {
+    font-weight: normal;
+    font-size: .8em;
+}
+
+.header-title {
+    display: flex;
+    align-items: baseline;
+}
+
+.header-title h1 {
+    font-size: 1.5em;
+}
+
+.header-title h2 {
+    font-weight: 300;
+    font-size: .8em;
+    color: gray;
+    margin: 0 0 0 1em;
+}
+
+.share {
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+}
+
+.share > span {
+    font-size: .5em;
+    padding: 7px 15px;
+    color: #fff;
+    background-color: #46b980;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.share > span:last-child {
+    background-color: #e6e2dc;
+    margin-left: 10px;
+    color: #404040;
+}
+
+.share i {
+    font-size: 2.2em;
+    vertical-align: -10%;
+    margin-right: 3px;
+}
+
+.twitter-color {
+    color: #00aced;
+}
+
+.main {
+    width: 60%;
+    align-self: center;
+    margin-top: 50px;
+    flex: 1 0 auto;
+}
+
+.main h1 {
+    font-size: 2.5em;
+    font-weight: normal;
+    margin: 10px 0 30px;
+}
+
+.main .content {
+    background-color: #f4f3f0;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 3px;
+    padding: 15px;
+}
+
+.main button {
+    border: 0;
+    outline: 0;
+    background-color: #e6e2dc;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 3px;
+    margin-top: 20px;
+    padding: 8px 15px;
+}
+
+.main button i {
+    vertical-align: -10%;
+}
+
+.footer {
+    /* flex: none;
+     align-self: flex-end;*/
+}
+
+.footer > p {
+    text-align: center;
+    background-color: #312e2e;
+    color: #fff;
+    padding: 10px 0;
+}

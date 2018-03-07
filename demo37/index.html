@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- viewport是用户网页的可视区域
+         width=device-width告诉浏览器将布局视口的宽度设置为设备最理想的宽
+         initial-scale=1.0缩放比例为1，保证在加载的时候要获取设备的宽度，同时要保持原始大小，便于媒体查询
+         maximum-scale=1允许用户缩放的最大比例
+         user-scalable=no，禁止用户缩放，可以解决iPad切换横屏之后触摸才能回到具体尺寸的问题
+     -->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1,user-scalable=no">
+    <!-- 设置IE的默认渲染模式
+         将IE浏览器默认的渲染方式设为电脑上所装IE浏览器的最高标准，如果有用户安装了chrome这个插件，就可以让电脑里面
+         不管是哪个IE版本都可以使用Webkit引擎及V8引擎进行排版和运算，如果未安装chrome插件，就会让IE以最高的文档模式
+         展现效果
+     -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>响应式布局--初探</title>
+    <link rel="stylesheet" href="media.css">
+    <!-- 为了解决兼容性，下面代码只在IE9以下浏览器中有效，此js文件是为让媒体查询在低版本浏览器中有效 -->
+    <!--[if it IE 9]
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<h2>响应式布局</h2>
+<p>1、概念</p>
+<p>Responsive Design，意在实现不同屏幕分辨率终端上浏览网页的不同方式。通过响应式设计能使网站在手机和平板电脑上有更好的浏览阅读体验。</p>
+<p>2、响应适配主要屏幕分辨率</p>
+<table>
+    <thead>
+        <th>设备</th>
+        <th>分辨率</th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>超小屏幕 手机</td>
+            <td>＜768px</td>
+        </tr>
+        <tr>
+            <td>小屏幕 平板</td>
+            <td>≥768px</td>
+        </tr>
+        <tr>
+            <td>中等屏幕 桌面显示器</td>
+            <td>≥992px</td>
+        </tr>
+        <tr>
+            <td>大屏幕 大桌面显示器</td>
+            <td>≥1200px</td>
+        </tr>
+    </tbody>
+</table>
+<p>3、响应式设计的步骤</p>
+<p>（1）设置meta标签</p>
+<code>
+    &lt;<span class="c-tagname">meta</span> <span class="c-attrname">name=</span><span class="c-properties">"viewport"</span> <span class="c-attrname">content=</span><span class="c-properties">"width=device-width,initial-scale=1.0,maximum-scale=1,user-scalable=no"</span>&gt;
+</code>
+<p>viewport是用户网页的可视区域</p>
+<p>width=device-width告诉浏览器将布局视口的宽度设置为设备最理想的宽</p>
+<p>initial-scale=1.0缩放比例为1，保证在加载的时候要获取设备的宽度，同时要保持原始大小，便于媒体查询</p>
+<p>maximum-scale=1允许用户缩放的最大比例</p>
+<p>user-scalable=no，禁止用户缩放，可以解决iPad切换横屏之后触摸才能回到具体尺寸的问题</p>
+<p>（2）使用媒体查询（media query）设置样式，并根据需要设置多种视图宽度</p>
+<pre><code>
+    <span class="c-classname">@media (min-width: 1200px)</span>{
+         <span class="c-comment">/* 大桌面显示器，屏幕尺寸大于1200px的样式 */</span>
+    }
+    <span class="c-classname">@media (min-width: 992px) and (max-width: 1200px)</span>{
+         <span class="c-comment">/* 中等屏幕，屏幕尺寸在992px与1200px之间的样式 */</span>
+    }
+    <span class="c-classname">@media (min-width: 768px) and (max-width: 992px)</span> {
+          <span class="c-comment">/* 平板，屏幕尺寸在768px与992px之间的样式 */</span>
+    }
+    <span class="c-classname">@media (max-width: 768px)</span>{
+          <span class="c-comment">/* 手机，屏幕尺寸小于768px的样式 */</span>
+    }
+</code></pre>
+<p>（3）字体设置</p>
+<p>使用rem（font size of the root element）来设置字体，达到字体响应式。rem是相对于根元素的，意味着只需要设置html的字体大小，就能够精确确定子元素的字体大小。</p>
+<pre><code>
+    <span class="c-classname">html</span>{
+        <span class="c-comment">/* 改变根元素默认字体大小（默认为16px=100%）为62.5%（10px），即10/16=0.625 */</span>
+        <span class="c-attrname">font-size:</span> <span class="c-prop-value">62.5%</span>;
+    }
+    <span class="c-classname">body</span>{
+        <span class="c-comment">/* 为了兼容不支持rem的浏览器做的回退机制 */</span>
+        <span class="c-attrname">font-size: </span><span class="c-prop-value">14px</span>;
+        <span class="c-comment">/* 10*1.4=14px，1.4rem=14/10 */</span>
+        <span class="c-attrname">font-size: </span><span class="c-prop-value">1.4rem</span>;
+    }
+</code></pre>
+<p>适配其他屏幕时，可在媒体查询中分别设置，也可以利用js动态计算html的font-size值</p>
+<p>4、响应式布局需要注意的一些问题</p>
+<p>（1）元素宽度使用百分比</p>
+<span>比如：</span>
+<code><span class="c-classname">.main</span>{ <span class="c-attrname">width:</span> <span class="c-prop-value">50%</span>; }</code>
+<p>（2）处理图片缩放</p>
+<pre><code>
+    <span class="c-classname">.content img</span>{
+        <span class="c-attrname">max-width:</span> <span class="c-prop-value">100%</span>;
+        <span class="c-attrname">height:</span> <span class="c-prop-value">auto</span>;
+    }
+</code></pre>
+<p>为了保证图片不会超出其父元素尺寸，设置max-width: 100%;，那么它会根据.content的宽度改变以达到等宽扩充，height:auto;是为了保证图片原始的宽高比例，避免图片失真。</p>
+<p>如果是背景图片，又该如何做呢？</p>
+<pre><code>
+    <span class="c-classname">.bg</span>{
+        <span class="c-attrname">width:</span><span class="c-prop-value">100%</span>;
+        <span class="c-attrname">height:</span><span class="c-prop-value">200px</span>;
+        <span class="c-attrname">background-image:</span><span class="c-prop-value">url(logo.png)</span>;
+        <span class="c-attrname">background-repeat:</span><span class="c-prop-value">no-repeat</span>;
+        <span class="c-comment">/* 设置100%，图片可能会被拉伸或收缩 */
+        /*background-size:100% 100%;*/</span>
+        <span class="c-attrname">background-size:</span> <span class="c-prop-value">cover</span>;
+    }
+</code></pre>
+<p>img标签</p>
+<div class="main">
+    <img src="../imgs/bawei.jpg">
+</div>
+<p>背景图像</p>
+<div class="bg"></div>
+</body>
+</html>

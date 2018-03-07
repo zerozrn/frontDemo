@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- edge模式，通知IE采用其所支持的最新的模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <title>css弹性布局（2）--实例</title>
+    <link rel="stylesheet" href="../fonts/iconfont.css">
+    <link rel="stylesheet" href="flex.css"/>
+
+</head>
+<body>
+<h2>css弹性布局Flexible Box（2）--实例</h2>
+<h4>1 经典骰子</h4>
+<div class="dice-container">
+    <!-- 1点 -->
+    <div class="face first-face">
+        <span class="pip"></span>
+    </div>
+    <!-- 2点 -->
+    <div class="face second-face">
+        <span class="pip"></span>
+        <span class="pip"></span>
+    </div>
+    <!-- 3点 -->
+    <div class="face third-face">
+        <span class="pip"></span>
+        <span class="pip"></span>
+        <span class="pip"></span>
+    </div>
+    <!-- 4点 -->
+    <div class="face forth-face">
+        <div class="item">
+            <span class="pip"></span>
+            <span class="pip"></span>
+        </div>
+        <div class="item">
+            <span class="pip"></span>
+            <span class="pip"></span>
+        </div>
+    </div>
+    <!-- 5点 -->
+    <div class="face fifth-face">
+        <div class="item">
+            <span class="pip"></span>
+            <span class="pip"></span>
+        </div>
+        <span class="pip"></span>
+        <div class="item">
+            <span class="pip"></span>
+            <span class="pip"></span>
+        </div>
+    </div>
+    <!-- 6点 -->
+    <div class="face sixth-face">
+        <div class="item">
+            <span class="pip"></span>
+            <span class="pip"></span>
+            <span class="pip"></span>
+        </div>
+        <div class="item">
+            <span class="pip"></span>
+            <span class="pip"></span>
+            <span class="pip"></span>
+        </div>
+    </div>
+    <!-- 9点 -->
+    <div class="face ninth-face">
+        <span class="pip"></span>
+        <span class="pip"></span>
+        <span class="pip"></span>
+        <span class="pip"></span>
+        <span class="pip"></span>
+        <span class="pip"></span>
+        <span class="pip"></span>
+        <span class="pip"></span>
+        <span class="pip"></span>
+    </div>
+</div>
+<h4>2 网格布局</h4>
+<p>(1)基本网格布局，平均分布</p>
+<div class="basic-grid-layout">
+    <div class="grid half">
+        <div class="grid-cell">1/2</div>
+        <div class="grid-cell">1/2</div>
+    </div>
+    <div class="grid three">
+        <div class="grid-cell">1/3</div>
+        <div class="grid-cell">1/3</div>
+        <div class="grid-cell">1/3</div>
+    </div>
+    <div class="grid four">
+        <div class="grid-cell">1/4</div>
+        <div class="grid-cell">1/4</div>
+        <div class="grid-cell">1/4</div>
+        <div class="grid-cell">1/4</div>
+    </div>
+    <div class="grid half self-grid">
+        <div class="grid-cell">Full-height, even when my content doesn't full the space.</div>
+        <div class="grid-cell">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque earum, ex exercitationem fugiat fugit laudantium natus nihil perferendis quia. Consectetur eius, facilis iusto maiores molestias odio quae quasi repellat ullam.</div>
+    </div>
+</div>
+<p>(2)百分比布局</p>
+<div class="percent-layout">
+    <div class="grid three">
+        <div class="grid-cell u-half">1/2</div>
+        <div class="grid-cell">auto</div>
+        <div class="grid-cell">auto</div>
+    </div>
+    <div class="grid three">
+        <div class="grid-cell">auto</div>
+        <div class="grid-cell u-1of3">1/3</div>
+    </div>
+    <div class="grid three">
+        <div class="grid-cell u-1of4">1/4</div>
+        <div class="grid-cell">auto</div>
+        <div class="grid-cell u-1of3">1/3</div>
+    </div>
+</div>
+<h4>3 输入框布局</h4>
+<div class="input-box-layout">
+    <div class="input-layout">
+        <div class="input-add">
+            <h4>Add-on prepended</h4>
+            <div class="input-box margin-b">
+                <span class="input-add-item">Amount</span>
+                <input type="text" class="input-add-field l">
+            </div>
+            <div class="input-box">
+                <span class="input-add-item">
+                    <img src="../imgs/search.png">
+                </span>
+                <input type="text" class="input-add-field l">
+            </div>
+        </div>
+        <div class="input-add">
+            <h4>Add-on appended</h4>
+            <div class="input-box margin-b">
+                <input type="text" class="input-add-field r">
+                <span class="input-add-item">Go</span>
+            </div>
+            <div class="input-box">
+                <input type="text" class="input-add-field r">
+                <span class="input-add-item">
+                    <img src="../imgs/star.png">
+                </span>
+            </div>
+        </div>
+    </div>
+    <h4>prepended and appended add-ons</h4>
+    <div class="input-both-box">
+        <div class="input-box">
+            <span class="input-add-item">
+                <img src="../imgs/email.png">
+            </span>
+            <input type="text" class="input-add-field l r">
+            <span class="input-add-item">Send</span>
+        </div>
+        <div class="input-box">
+            <span class="input-add-item">
+                <img src="../imgs/lock.png">
+            </span>
+            <input type="text" class="input-add-field l r">
+            <span class="input-add-item">Encrypt</span>
+        </div>
+    </div>
+</div>
+<h4>4 悬挂式布局，主栏的左侧或者右侧，需要添加一个图片栏</h4>
+<div class="suspend-layout">
+    <h3>Basic Examples</h3>
+    <div class="basic-example">
+        <div class="suspend-cell">
+            <div class="media">
+                <img src="../imgs/karton.jpg">
+                <div><p><strong>Standard Media Object</strong></p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac nisl quis massa vulputate adipiscing. Vivamus sit amet risus ligula. Nunc eu pulvinar augue.</div>
+            </div>
+            <div class="media">
+                <img src="../imgs/karton.jpg">
+                <div><p><strong>Standard Media Object</strong></p>Donec imperdiet sem leo, id rutrum risus aliquam vitae. Cras tincidunt porta mauris, vel feugiat mauris accumsan eget.</div>
+            </div>
+        </div>
+        <div class="suspend-cell">
+            <div class="media">
+                <div><p><strong>Standard Media Object</strong></p>Phasellus vel felis purus. Aliquam consequat pellentesque dui, non mollis erat dictum sit amet. Curabitur non quam dictum, consectetur arcu in, vehicula justo. Donec tortor massa, eleifend nec viverra in, aliquet at eros. Mauris laoreet condimentum mauris, non tempor massa fermentum ut. Integer gravida pharetra cursus. Nunc in suscipit nunc.</div>
+                <img src="../imgs/karton.jpg">
+            </div>
+        </div>
+    </div>
+    <h3>Non-images</h3>
+    <div class="no-images">
+        <div class="suspend-cell">
+            <div class="media">
+                <i class="iconfont icon-message"></i>
+                <div>
+                    <p><strong>Using Icons</strong></p>
+                    Donec imperdiet sem leo, id rutrum risus aliquam vitae. Vestibulum ac turpis non lacus dignissim dignissim eu sed dui.
+                </div>
+            </div>
+        </div>
+        <div class="suspend-cell">
+            <div class="media">
+                <i class="iconfont icon-help center-icon"></i>
+                <div>
+                    <p><strong>Vertically Centering the Figure</strong></p>
+                    Nunc nec fermentum dolor. Duis at iaculis turpis. Sed rutrum elit ac egestas dapibus. Duis nec consequat enim.
+                </div>
+            </div>
+        </div>
+    </div>
+    <h3>Nested Media Objects</h3>
+    <div class="nested-media-object">
+        <div class="suspend-cell">
+            <div class="media">
+                <img src="../imgs/karton.jpg" alt="">
+                <div>
+                    <p><strong>Media Object Title</strong></p>
+                    <p>Phasellus vel felis purus. Aliquam consequat pellentesque dui, non mollis erat dictum sit amet. Curabitur non quam dictum, consectetur arcu in, vehicula justo.</p>
+                    <div class="media dark-media">
+                        <img src="../imgs/karton.jpg" alt="" class="smaller-img">
+                        <div class="smaller-text">Mauris porta arcu id magna adipiscing lacinia at congue lacus. Vivamus blandit quam quis tincidunt egestas. Etiam posuere lectus sed sapien malesuada molestie.</div>
+                    </div>
+                    <div class="media dark-media">
+                        <img src="../imgs/karton.jpg" alt="" class="smaller-img">
+                        <div>
+                            <p class="smaller-text">Vestibulum ac turpis non lacus dignissim dignissim eu sed dui. Proin a ligula sit amet massa malesuada mattis eu a ante. Nunc porttitor sed quam quis sollicitudin. Vestibulum ac turpis non lacus dignissim dignissim eu sed dui.</p>
+                            <div class="media dark-media pl-none">
+                                <i class="iconfont icon-zan center-icon"></i>
+                                <p class="smaller-text">Rutrum risus aliquam vitae.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="suspend-cell">
+            <div class="media">
+                <img src="../imgs/karton.jpg" alt="">
+                <div>
+                    <p><strong>Media Object Title</strong></p>
+                    <p>Phasellus vel felis purus. Aliquam consequat pellentesque dui, non mollis erat dictum sit amet. Curabitur non quam dictum, consectetur arcu in, vehicula justo. Donec tortor massa, eleifend nec viverra in, aliquet at eros. Mauris laoreet condimentum mauris, non tempor massa fermentum ut.</p>
+                    <div class="media pl-none">
+                        <i class="iconfont icon-zan center-icon"></i>
+                        <p class="smaller-text">Donec imperdiet sem leo, id rutrum risus aliquam vitae.</p>
+                    </div>
+                    <div class="media dark-media">
+                        <img src="../imgs/karton.jpg" alt="" class="smaller-img">
+                        <p class="smaller-text">Mauris porta arcu id magna adipiscing lacinia at congue lacus. Vivamus blandit quam quis tincidunt egestas. Etiam posuere lectus sed sapien malesuada molestie. Aliquam vitae pharetra dolor. Nullam non mattis nunc.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<h4>5 流式布局</h4>
+<p>每行的项目数固定，自动分行</p>
+<div class="parent">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+    <div class="item">4</div>
+</div>
+<div class="parent">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+    <div class="item">4</div>
+    <div class="item">5</div>
+    <div class="item">6</div>
+    <div class="item">7</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BFC的理解</title>
+    <link rel="stylesheet" href="bfc.css">
+</head>
+<body>
+<h3>BFC的理解</h3>
+<h4>BFC的定义</h4>
+<p>直译为“块级格式化上下文”，是一个独立的渲染区域，只有Block-level box参与，规定其内部的Block-level box如何布局，并与此区域外部毫不相干。</p>
+<h4>如何创建BFC</h4>
+<p>只要满足下列条件中的一个即可创建BFC</p>
+<ul class="condition">
+    <li><code>float</code>的值不为<code>none</code></li>
+    <li><code>position</code>的值不为<code>relative</code>或<code>static</code></li>
+    <li>
+        <code>display</code>的值为
+        <code>table-cell</code>，
+        <code>table-caption</code>，
+        <code>inline-block</code>，
+        <code>flex</code>或者
+        <code>inline-flex</code>中的其中一个
+    </li>
+    <li><code>overflow</code>的值不为<code>visible</code></li>
+</ul>
+<p>1 BFC防止外边距折叠</p>
+<div class="container">
+    <p>item1</p>
+    <p>item2</p>
+    <p>item3</p>
+</div>
+<p>由上图看出，p属性margin: 15px 0;，它们之间的垂直外边距应该是30px，但是现在折叠了，并且以距离大的那个为准，主要是因为它们是同一个BFC，那么在不同的BFC中就能防止外边距折叠。如下图：</p>
+<div class="container">
+    <p>item1</p>
+    <p>item2</p>
+    <div class="new-box">
+        <p>item3</p>
+    </div>
+</div>
+<p>2 包含浮动（一说解决浮动元素父亲高度塌陷问题）</p>
+<div class="container">
+    <div class="float">item1</div>
+    <div class="float">item2</div>
+</div>
+<div style="clear: both;"></div>
+<p>如上图，子元素均左浮动，父元素高度确是其内边距高度，看起来子元素超出父元素高度，如何解决这个问题呢？如下图，触发父元素BFC</p>
+<div class="container" style="overflow: hidden;">
+    <div class="float">item1</div>
+    <div class="float">item2</div>
+</div>
+<p>3 防止文字环绕（左右两列布局）</p>
+<div class="surround">
+    <!--<img src="../imgs/handsome.jpg" alt="">-->
+    <div>我浮动了</div>
+    <p>高中时期是理科生，加入青二塾以前只是一般地看着动画，没有想要成为声优的念头。一直是空手道部的成员，小学时茶带，高中时已是黑带，高三夏天参加县大会后于6月份从社团隐退。通过懂音乐的朋友接触了乐器，还效仿报考艺术大学的同学学习画画。当年7月份加入同年级朋友组建的演剧团，在9月份的地区演剧大赛中担任剧目《挑战者》的男主角，意外获得“个人演技奖”，自此开始对演剧事业产生兴趣。</p>
+</div>
+<p>从上图看出，未浮动的p标签一部分显示在浮动div的下方一层，但是由于浮动元素是占据位置的，所以文字在div右侧展示，显示不下时，就会在div下面顺序显示，因为没有阻碍了。解决方式：给p创建一个BFC（overflow:hidden;），如下图：</p>
+<div class="surround">
+    <img src="../imgs/handsome.jpg" alt="">
+    <p style="overflow: hidden">高中时期是理科生，加入青二塾以前只是一般地看着动画，没有想要成为声优的念头。一直是空手道部的成员，小学时茶带，高中时已是黑带，高三夏天参加县大会后于6月份从社团隐退。通过懂音乐的朋友接触了乐器，还效仿报考艺术大学的同学学习画画。当年7月份加入同年级朋友组建的演剧团，在9月份的地区演剧大赛中担任剧目《挑战者》的男主角，意外获得“个人演技奖”，自此开始对演剧事业产生兴趣。</p>
+</div>
+<p>4 在多列布局中使用BFC</p>
+<p>如果我们正在创建的一个多列布局占满了整个容器的宽度，在某些浏览器中最后一列有时候将会被挤到下一行。会发生这样可能是因为浏览器舍入（取整）了列的宽度使得总和的宽度超过了容器的宽度。然而，如果我们在一个列的布局中建立了一个新的BFC，它将会在前一列填充完之后的后面占据所剩余的空间。</p>
+<div class="multi-columns">
+    <div>column1</div>
+    <div>column2</div>
+    <div>column3</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1,user-scalable=no">
+    <title>响应式布局--实例（1）</title>
+    <link rel="stylesheet" href="../fonts/iconfont.css">
+    <link rel="stylesheet" href="media.css">
+</head>
+<body>
+<header class="header clearfix">
+    <h1 class="logo"></h1>
+    <ul class="menu" id="menu">
+        <li>CSS3</li>
+        <li>JavaScript</li>
+        <li>React</li>
+        <li>Vue</li>
+        <li>Mobile</li>
+        <li>Sass</li>
+        <li>译文</li>
+        <li>SVG</li>
+        <li>视频教程</li>
+        <li>标签云</li>
+        <li>RSS</li>
+    </ul>
+    <div class="menu-switch">
+        <span>menu</span>
+        <i class="iconfont icon-menu" id="switch" data-status="off"></i>
+    </div>
+</header>
+<main class="main">
+    <div class="big-banner">
+        <img class="img-responsive" src="https://www.w3cplus.com/sites/default/files/blogs/2017/1712/zhijia.png" alt="一灯学堂，学习前端，年薪20W不成问题">
+    </div>
+    <div class="container clearfix">
+        <div class="content">
+            <img class="img-responsive" src="https://www.w3cplus.com/sites/default/files/blogs/2017/1707/dwad960-90.png" alt="直播课">
+            <div class="content-list">
+                <p class="home-nav">首页</p>
+                <h2>REACT</h2>
+                <ul class="content-ul">
+                    <li>
+                        <h2>面向初学者的高阶组件教程</h2>
+                        <div class="extra-info clearfix">
+                            <span>作者：大漠 日期：2017-09-17 点击：1469</span>
+                            <span><i class="iconfont icon-mark"></i>React HOC 高阶组件</span>
+                        </div>
+                        <div class="think clearfix">
+                            <p>谈点：一篇面向初学者的 HOC
+                                介绍。高阶组件听起来挺唬人的，只看名字恐怕不是那么容易明白究竟是何物，而且通常来讲高阶组件并不是组件，而是接受组件作为参数，并且返回组件的函数。早期利用 ES5 的 mixin
+                                语法来做的事，基本都可以使用高阶组件代替，而且能做的还有更多。</p>
+                            <button type="button">阅读全文</button>
+                        </div>
+                    </li>
+                    <li>
+                        <h2>React 组件设计和分解思考</h2>
+                        <div class="extra-info clearfix">
+                            <span>作者：大漠 日期：2017-09-16 点击：657</span>
+                            <span><i class="iconfont icon-mark"></i>React</span>
+                        </div>
+                        <div class="think clearfix">
+                            <p>今天再来同大家讨论 React 组件设计的一个有趣话题：分解 React 组件的几种进阶方法。React
+                                组件魔力无穷，同时灵活性超强。我们可以在组件的设计上，玩转出很多花样。但是保证组件的Single responsibility principle:
+                                单一原则非常重要，它可以使得我们的组件更简单、更方便维护，更重要的是使得组件更加具有复用性。但是，如何对一个功能复杂且臃肿的 React
+                                组件进行分解，也许并不是一件简单的事情。本文由浅入深，介绍三个分解 React 组件的方法。</p>
+                            <button type="button">阅读全文</button>
+                        </div>
+                    </li>
+                    <li>
+                        <h2>如何在Codepen上创建React组件</h2>
+                        <div class="extra-info clearfix">
+                            <span>作者：大漠 日期：2017-09-16 点击：657</span>
+                            <span><i class="iconfont icon-mark"></i>React</span>
+                        </div>
+                        <div class="think clearfix">
+                            <p>React是Facebook开源的一个JavaScript框架。大型Web应用或单页应用程序（SPA）中进行视图（View）的渲染，React是理想的选择。也就是说，React
+                                主要只专注于 MVC 中的
+                                V，也就是视图层。对于初学者而言，多写React项目能更好的帮助我们学习React。那么有一个运行React的环境，能帮助初学者解决很多没有必要的烦恼。在这篇文章中，简单的介绍如何在Codepen上创建React组件或者项目。</p>
+                            <button type="button">阅读全文</button>
+                        </div>
+                    </li>
+                    <li>
+                        <h2>React.js小书：组件的组合、嵌套和组件树</h2>
+                        <div class="extra-info clearfix">
+                            <span>作者：胡子大哈 日期：2017-09-16 点击：396</span>
+                            <span><i class="iconfont icon-mark"></i>ReactReact.js小书</span>
+                        </div>
+                        <div class="think clearfix">
+                            <p>继续拓展前面的例子，现在我们已经有了 <code>Header</code> 组件了。假设我们现在构建一个新的组件叫 <code>Title</code>，它专门负责显示标题。你可以在 <code>Header</code> 里面使用
+                                <code>Title</code>组件。</p>
+                            <button type="button">阅读全文</button>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="pagination">
+                    <li class="active">1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                    <li>下一页</li>
+                    <li>末页</li>
+                </ul>
+            </div>
+        </div>
+        <aside class="aside">
+            <div class="aside-search-box clearfix">
+                <input type="text">
+                <span><i class="iconfont icon-search"></i></span>
+            </div>
+            <img  class="img-responsive" src="https://www.w3cplus.com/sites/default/files/blogs/w3cplus300.png" alt="">
+            <img class="img-responsive" src="https://www.w3cplus.com/sites/default/files/blogs/2017/1706/damo-300.png" alt="">
+            <img class="img-responsive" src="https://www.w3cplus.com/sites/default/files/blogs/2016/1608/moyu.png" alt="">
+            <img class="img-responsive" src="https://www.w3cplus.com/sites/default/files/blogs/2017/1708/qiniu.jpg" alt="">
+            <div><h4>合作网站</h4></div>
+            <ul>
+                <li>前端开发 ScriptOJ</li>
+                <li>墨鱼前端培训</li>
+                <li>HTML5梦工场</li>
+                <li>Sass入门指南</li>
+                <li>CSS解决方案</li>
+                <li>W3ctech</li>
+                <li>前端圈</li>
+                <li>Drupal中国</li>
+            </ul>
+            <div><h4>友情链接</h4></div>
+            <ul>
+                <li>segmentfault</li>
+                <li>腾讯 AlloyTeam</li>
+                <li>广州微信开发</li>
+                <li>在线图片压缩</li>
+                <li>java源代码学习</li>
+                <li>墨鱼前端开发培训</li>
+                <li>猪八戒网</li>
+                <li>HTML5梦工场</li>
+                <li>PHP教程</li>
+                <li>程序员客栈</li>
+            </ul>
+        </aside>
+    </div>
+</main>
+<div class="about clearfix">
+    <div class="about-item">
+        <h4>关于我们</h4>
+        <div class="img-box"><img class="img-responsive" src="https://www.w3cplus.com/sites/all/themes/w3cplusV2/images/logo.png" alt=""></div>
+        <p>
+            W3cplus是一个致力于推广国内前端行业的技术博客。它以探索为己任，不断活跃在行业技术最前沿，努力提供高质量前端技术博文；其文章范围广泛，主要以CSS3、HTML5、JavaScript、Vue、React、Mobile、动画等教程、译文和案例为主。</p>
+        <p>W3cplus提供相关广告展示与招聘发布，有需要的请联系：微信号w3cplus，E-mail:airenliao@gmail.com著作权归作者所有。</p>
+    </div>
+    <div class="about-item">
+        <h4>关于站长</h4>
+        <div class="img-box"><img class="img-responsive" src="https://www.w3cplus.com/sites/all/themes/w3cplusV2/images/logo.png" alt=""></div>
+        <p>
+            常用昵称“大漠”，W3CPlus创始人，目前就职于淘宝。对HTML5、CSS3和CSS处理器等前端脚本语言有非常深入的认识和丰富的实践经验，尤其专注对CSS3和动画的研究，是国内最早研究和使用CSS3和CSS处理器技术的一批人。现在主要在探讨学习JavaScript、React和Vue相关技术知识。CSS3、CSS处理器和Drupal中国布道者。2014年出版《图解CSS3：核心技术与案例实战》。</p>
+    </div>
+    <div class="about-item">
+        <h4>我的作品</h4>
+        <div class="img-box"><img class="img-responsive" src="https://www.w3cplus.com/sites/all/themes/w3cplusV2/images/logo.png" alt=""></div>
+        <p>本书理论知识系统全面，详细讲解了选择器、伸缩布局盒模型、渐变、过渡、动画等主题下涵盖的所有CSS3新特性。</p>
+    </div>
+</div>
+<footer class="footer">湘ICP备13003850号-12，版权所有 衡阳瑞思信息技术有限公司 © 2011-2017 W3CPLUS，感谢Drupal开源技术。感谢七牛云存储提供静态资源空间。</footer>
+<script>
+    var btn_switch = document.getElementById("switch")
+        , menu = document.getElementById("menu");
+
+    btn_switch.onclick = function (e) {
+        // 阻止事件冒泡
+        e.stopPropagation();
+        var status = btn_switch.getAttribute("data-status");
+        if (status == "off") {
+            menu.style.display = "block";
+            btn_switch.setAttribute("data-status", "on");
+        } else if (status == "on") {
+            menu.style.display = "none";
+            btn_switch.setAttribute("data-status", "off");
+        }
+    }
+</script>
+</body>
+</html>

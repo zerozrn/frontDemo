@@ -1,0 +1,296 @@
+.dice-container {
+    width: 60%;
+    background-color: #312e2e;
+    padding: 1.5em;
+    display: flex;
+    justify-content: space-between;
+}
+
+.face {
+    width: 80px;
+    height: 80px;
+    padding: 8px;
+    display: flex;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 3px 0 5px #e7e7e7;
+    -moz-box-shadow: 0 3px 0 5px #e7e7e7;
+    box-shadow: 0 3px 0 5px #e7e7e7;
+    background-color: #fff;
+}
+
+.pip {
+    width: 18px;
+    height: 18px;
+    display: block;
+    background-color: #312e2e;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+}
+
+.first-face {
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+}
+
+.second-face {
+    /* 使pip两端对齐，则会贴紧边框，然后再对第二个pip单独设置位置 */
+    justify-content: space-between;
+}
+
+.second-face .pip:nth-child(2) {
+    align-self: flex-end; /* 与轴的终点对齐 */
+}
+
+.third-face {
+    justify-content: space-between;
+}
+
+.third-face .pip:nth-child(2) {
+    align-self: center;
+}
+
+.third-face .pip:nth-child(3) {
+    align-self: flex-end;
+}
+
+.forth-face {
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.forth-face > .item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.fifth-face {
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.fifth-face > .item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.fifth-face > .pip {
+    align-self: center;
+}
+
+.sixth-face {
+    justify-content: space-between;
+}
+
+.sixth-face > .item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.ninth-face {
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.basic-grid-layout,
+.percent-layout {
+    width: 100%;
+    background-color: #312e2e;
+    padding: 1.5em;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.grid {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.grid-cell {
+    flex: 1;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: #fff;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-radius: 5px;
+    background-color: #7799bb;
+    /* very important，可实现响应式，随屏幕大小变化而变化 */
+    flex-shrink: 1;
+}
+
+.half > .grid-cell:not(:last-child),
+.three > .grid-cell:not(:last-child),
+.four > .grid-cell:not(:last-child) {
+    margin-right: 10px;
+}
+
+.self-grid > .grid-cell {
+    height: auto;
+    text-align: left;
+    padding: 1em;
+    line-height: 25px;
+}
+
+.percent-layout .u-half {
+    flex: 0 0 50%;
+}
+
+.percent-layout .u-1of3 {
+    flex: 0 0 33.3333%;
+}
+
+.percent-layout .u-1of4 {
+    flex: 0 0 25%;
+}
+
+/* 输入框布局 */
+.input-box-layout,
+.suspend-layout {
+    width: 70%;
+    margin: 0 auto 30px;
+    border: 1px solid #dcd9d9;
+    padding: 15px;
+}
+
+.input-layout {
+    margin-bottom: 50px;
+}
+
+.input-layout,
+.input-both-box,
+.input-box {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.input-add,
+.input-add-field {
+    flex: 1;
+}
+
+.input-add:first-child,
+.input-box:first-child {
+    margin-right: 30px;
+}
+
+.margin-b {
+    margin-bottom: 20px;
+}
+
+.input-add-item {
+    text-align: center;
+    background-color: #f4f3f0;
+    height: 36px;
+    line-height: 36px;
+}
+
+.input-add-field,
+.input-add-item {
+    padding: 0 10px;
+    border: 1px solid #dcd9d9;
+    outline: 0;
+}
+
+.input-both-box > .input-box {
+    flex: 1;
+}
+
+.l {
+    border-left: 0;
+}
+
+.r {
+    border-right: 0;
+}
+
+.input-add-item > img {
+    width: 20px;
+    margin-top: 8px;
+}
+
+/* 悬挂式布局 */
+.basic-example,
+.no-images,
+.nested-media-object {
+    display: flex;
+    margin: -25px 0 0 -25px;
+}
+
+.suspend-cell {
+    flex: 1;
+    padding: 25px 0 0 25px;
+}
+
+.media {
+    display: flex;
+    background-color: #f4f3f0;
+    padding: 15px 20px;
+    margin-bottom: 25px;
+    align-items: flex-start;
+}
+
+.media img {
+    display: block;
+    width: 100px;
+    height: auto;
+    margin-right: 15px;
+}
+
+.media p {
+    margin: 0 0 10px;
+}
+
+.iconfont {
+    margin-right: 15px;
+}
+
+.center-icon {
+    align-self: center;
+}
+
+.smaller-img {
+    width: 50px !important;
+}
+
+.smaller-text {
+    font-size: 14px;
+}
+
+.dark-media {
+    background-color: #dcd9d9;
+}
+
+.pl-none {
+    padding-left: 0;
+}
+
+.parent {
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.parent > .item {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    border: 1px solid deeppink;
+    flex: 0 0 25%;
+}

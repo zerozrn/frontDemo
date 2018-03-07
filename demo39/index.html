@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1,user-scalable=no">
+    <title>响应式布局--实例（2）</title>
+    <link rel="stylesheet" href="../fonts/iconfont.css">
+    <link rel="stylesheet" href="../css/swiper-3.4.2.min.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="media.css">
+</head>
+<body>
+<div class="container">
+    <header class="header">
+        <div class="header-box clearfix">
+            <div class="btn-menu" id="btnMenu" data-status="off">
+                <i class="iconfont icon-menu"></i>
+            </div>
+            <div class="btn-user">
+                <i class="iconfont icon-user"></i>
+            </div>
+            <h1 class="logo">themebetter</h1>
+            <a class="btn-login">登录</a>
+            <ul class="sidebar" id="sidebar">
+            <li>首页</li>
+            <li class="has-submenu">
+                WordPress主题<i class="iconfont icon-down"></i>
+                <div class="sub-menu clearfix">
+                    <i class="iconfont icon-triangle"></i>
+                    <ul>
+                        <li>themebetter-ent</li>
+                        <li>tob主题</li>
+                        <li>DUX主题</li>
+                        <li>XIU主题</li>
+                        <li>D8主题</li>
+                    </ul>
+                </div>
+            </li>
+            <li>主题动态</li>
+            <li>使用教程</li>
+            <li class="has-submenu">
+                定制/服务<i class="iconfont icon-down"></i>
+                <div class="sub-menu clearfix">
+                    <i class="iconfont icon-triangle"></i>
+                    <ul>
+                        <li>定制主题</li>
+                        <li>功能开发与修改</li>
+                        <li>服务器环境安装</li>
+                        <li>LOGO制作</li>
+                        <li>Banner制作</li>
+                        <li>Favicon.ico制作</li>
+                    </ul>
+                </div>
+            </li>
+            <li>会员中心</li>
+        </ul>
+            <div class="header-mask"></div>
+        </div>
+    </header>
+    <div class="swiper-container">
+        <!-- 轮播内容 -->
+        <div class="swiper-wrapper">
+            <div class="swiper-slide" style="background-image: url('https://themebetter.com/static/img/banners/banner-01.jpg')">
+                <div class="content">
+                    <h1>更好的WordPress主题</h1>
+                    <p>7年WordPress主题开发   /   高端大气用户体验   /   全设备自适应兼容   /   免费靠谱工单售后</p>
+                    <div class="btn-box">
+                        <button type="button">全新定制主题</button>
+                        <button type="button">挑选主题</button>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide" style="background-image: url('https://themebetter.com/static/img/banners/banner-02.jpg')">
+                <div class="content">
+                    <h1>Say bye 不负责商家</h1>
+                    <p>themebetter创立初期就自研工单服务系统，而后经过无数次的优化迭代，这一切就是为更好的服务于你</p>
+                    <p>你看到的简单，其实是背后的不凡</p>
+                    <div class="btn-box">
+                        <button type="button">登录以提交工单</button>
+                        <button type="button">挑选主题</button>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide" style="background-image: url('https://themebetter.com/static/img/banners/banner-03.jpg')">
+                <div class="content">
+                    <h1>专为中小企业而生</h1>
+                    <p>themebetter-ent主题，适用于企业官方网站、导购站、淘宝客、团队展示、商品展示，超全面SEO、模块化设计</p>
+                    <p>响应式布局支持电脑、平板和手机的完美展示</p>
+                    <div class="btn-box">
+                        <button type="button">themebetter-ent专题介绍</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 分页器 -->
+        <div class="swiper-pagination"></div>
+        <!-- 导航按钮 -->
+        <div class="swiper-button-prev swiper-button-white"></div>
+        <div class="swiper-button-next swiper-button-white"></div>
+    </div>
+</div>
+<main class="main">
+    <ul class="topic-ul">
+        <li>
+            <h4>themebetter-ent主题</h4>
+            <p>适用于企业站、淘宝客、商品展示</p>
+            <img src="https://themebetter.com/static/img/thumbs/themebetter-ent.jpg" alt="ent主题">
+        </li>
+        <li>
+            <h4>tob主题</h4>
+            <p>适用于各类图片、摄影展示站</p>
+            <img src="https://themebetter.com/static/img/thumbs/tob.jpg" alt="ent主题">
+        </li>
+        <li>
+            <h4>DUX主题</h4>
+            <p>适用于垂直站点、科技博客、个人站</p>
+            <img src="https://themebetter.com/static/img/thumbs/dux.jpg" alt="ent主题">
+        </li>
+        <li>
+            <h4>XIU主题</h4>
+            <p>适用于图片展示站点和个人博客</p>
+            <img src="https://themebetter.com/static/img/thumbs/xiu.jpg" alt="ent主题">
+        </li>
+    </ul>
+    <div class="main-move clearfix">
+        <div class="move-article">
+            <div class="move-title clearfix">
+                <h4>最新动态</h4>
+                <span>推荐企业展示主题，商品分类展示</span>
+            </div>
+            <div class="experts">
+                <article class="expert">
+                    <img src="https://themebetter.com/uploads/2016/03/xiu.jpg" alt="">
+                    <h3>XIU主题5.6版本更新：新增文章打赏功能、分类描述以及各种优化</h3>
+                    <p>新增文章打赏功能，支持支付宝和微信二维码</p>
+                    <div class="date">2017-12-21 XIU主题动态</div>
+                </article>
+                <article class="expert">
+                    <img src="https://themebetter.com/uploads/2017/03/themebetter-ent.jpg" alt="">
+                    <h3>themebetter-ent主题1.0版本更新 新增友链、首页SEO标题、产品分类数量、QQ咨询、文章亮点</h3>
+                    <p>新增QQ咨询按钮，可发起QQ会话，手机端点击此按钮可直接打开QQ或TIM的APP</p>
+                    <div class="date">2017-12-20themebetter-ent动态</div>
+                </article>
+                <article class="expert">
+                    <img src="https://themebetter.com/uploads/2017/09/wp.jpg" alt="">
+                    <h3>XIU主题5.6版本更新：新增文章打赏功能、分类描述以及各种优化</h3>
+                    <p>新增文章打赏功能，支持支付宝和微信二维码</p>
+                    <div class="date">2017-12-21 XIU主题动态</div>
+                </article>
+                <article class="expert">
+                    <img src="https://themebetter.com/uploads/2017/09/fav.png" alt="">
+                    <h3>XIU主题5.6版本更新：新增文章打赏功能、分类描述以及各种优化</h3>
+                    <p>新增文章打赏功能，支持支付宝和微信二维码</p>
+                    <div class="date">2017-12-21 XIU主题动态</div>
+                </article>
+                <article class="expert">
+                    <img src="https://themebetter.com/uploads/2017/03/themebetter-ent.jpg" alt="">
+                    <h3>XIU主题5.6版本更新：新增文章打赏功能、分类描述以及各种优化</h3>
+                    <p>新增文章打赏功能，支持支付宝和微信二维码</p>
+                    <div class="date">2017-12-21 XIU主题动态</div>
+                </article>
+                <article class="expert">
+                    <img src="https://themebetter.com/uploads/2017/09/https2.jpg" alt="">
+                    <h3>完美快速解决百度分享不支持HTTPS的问题</h3>
+                    <p>新增文章打赏功能，支持支付宝和微信二维码</p>
+                    <div class="date">2017-12-21 XIU主题动态</div>
+                </article>
+                <article class="expert">
+                    <img src="https://themebetter.com/uploads/2017/09/video2.png" alt="">
+                    <h3>tob主题0.7版本更新：新增分类SEO、文章图片自动添加alt、链接可排序、全面支持PHP7.1</h3>
+                    <p>新增文章打赏功能，支持支付宝和微信二维码</p>
+                    <div class="date">2017-12-21 XIU主题动态</div>
+                </article>
+                <article class="expert">
+                    <img src="https://themebetter.com/uploads/2016/05/tob-thumb222.png" alt="">
+                    <h3>XIU主题5.6版本更新：新增文章打赏功能、分类描述以及各种优化</h3>
+                    <p>新增文章打赏功能，支持支付宝和微信二维码</p>
+                    <div class="date">2017-12-21 XIU主题动态</div>
+                </article>
+                <article class="expert">
+                    <img src="https://themebetter.com/uploads/2016/03/xiu.jpg" alt="">
+                    <h3>XIU主题5.6版本更新：新增文章打赏功能、分类描述以及各种优化</h3>
+                    <p>新增文章打赏功能，支持支付宝和微信二维码</p>
+                    <div class="date">2017-12-21 XIU主题动态</div>
+                </article>
+                <article class="expert">
+                    <img src="https://themebetter.com/uploads/2017/08/b1.jpg" alt="">
+                    <h3>XIU主题5.6版本更新：新增文章打赏功能、分类描述以及各种优化</h3>
+                    <p>新增文章打赏功能，支持支付宝和微信二维码</p>
+                    <div class="date">2017-12-21 XIU主题动态</div>
+                </article>
+            </div>
+            <ul class="pagination">
+                <li class="active">1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>...</li>
+                <li>下一页</li>
+                <li>共13页</li>
+            </ul>
+        </div>
+        <aside>
+            <h4>优质付费服务</h4>
+            <div class="service-box clearfix">
+                <ul>
+                    <li>
+                        <i class="iconfont icon-bulb"></i>
+                        <p>定制主题或功能</p>
+                        <p class="service-aim">主题定制、功能实现、网站维护等</p>
+                    </li>
+                    <li>
+                        <i class="iconfont icon-server"></i>
+                        <p>定制主题或功能</p>
+                        <p class="service-aim">PHP、MYSQL、WORDPRESS环境搭建</p>
+                    </li>
+                    <li>
+                        <i class="iconfont icon-r"></i>
+                        <p>LOGO</p>
+                        <p class="service-aim">人工设计网站简易美观LOGO</p>
+                    </li>
+                    <li>
+                        <i class="iconfont icon-picture"></i>
+                        <p>Banner</p>
+                        <p class="service-aim">人工设计网站简易美观Banner</p>
+                    </li>
+                </ul>
+            </div>
+            <h4>新手推荐</h4>
+            <div class="new-recommend">
+                <span>菜单详解</span>
+                <span>固定链接配置</span>
+                <span>FTP教学</span>
+                <span>注册不能发邮件</span>
+                <span>访问网址出现404</span>
+                <span>百度分享HTTPS</span>
+                <span>添加外链视频</span>
+                <span>主题安装方法</span>
+                <span>WordPress快速安装</span>
+                <span>企业主题</span>
+                <span>图片主题</span>
+            </div>
+            <h4>用户评论</h4>
+            <ul class="user-evaluate">
+                <li>
+                    <img src="https://themebetter.com/avatar/08o3rljlor" alt="">
+                    <div>
+                        <p>一般都是保留，特殊用处的时候有必要</p>
+                        <p class="date">2017-12-25 mumuli</p>
+                    </div>
+                </li>
+                <li>
+                    <img src="https://themebetter.com/avatar/08o3rljlor" alt="">
+                    <div>
+                        <p>这个不错，小技巧</p>
+                        <p class="date">2017-12-25 mumuli</p>
+                    </div>
+                </li>
+                <li>
+                    <img src="https://themebetter.com/avatar/08o3rljlor" alt="">
+                    <div>
+                        <p>php7.1环境运行完美，速度挺快</p>
+                        <p class="date">2017-12-25 yijianmei</p>
+                    </div>
+                </li>
+                <li>
+                    <img src="https://themebetter.com/avatar/gjw50y8gop" alt="">
+                    <div>
+                        <p>感觉xiu的功能还会更强大，指日可待，最烦很多搞主题的就是不断的修修修，完善和新增功能这个策略你们做的还算可以的，基本上每次更新都有期待的地方。</p>
+                        <p class="date">2017-12-25 terens</p>
+                    </div>
+                </li>
+                <li>
+                    <img src="https://themebetter.com/avatar/gjw50y8gop" alt="">
+                    <div>
+                        <p>基础知识，无人不晓了吧</p>
+                        <p class="date">2017-12-25 terens</p>
+                    </div>
+                </li>
+            </ul>
+            <img class="adv" src="https://themebetter.com/uploads/2017/12/aliali.jpg" alt="">
+        </aside>
+    </div>
+    <div class="feature-box clearfix">
+        <ul class="feature">
+        <li>
+            <span><i class="iconfont icon-brain"></i></span>
+            <p class="p-title">高端专业开发团队</p>
+            <p>7年WordPress博客和企业建站开发经验，提供最专业主题设计与开发</p>
+        </li>
+        <li>
+            <span><i class="iconfont icon-vision"></i></span>
+            <p class="p-title">独一无二视觉冲击</p>
+            <p>增强用户体验提高品牌形象给人留下深刻的印象，每款主题都有自己的灵魂</p>
+        </li>
+        <li>
+            <span><i class="iconfont icon-computer"></i></span>
+            <p class="p-title">完善兼容各种设备</p>
+            <p>每款主题都提供完善的响应式布局，优化PC、Pad和各种手机端用户体验</p>
+        </li>
+        <li>
+            <span><i class="iconfont icon-secure"></i></span>
+            <p class="p-title">免费靠谱售后服务</p>
+            <p>免费在线工单售后，解决你关于主题的各种疑惑，你只需要用心做站</p>
+        </li>
+    </ul>
+    </div>
+</main>
+<footer class="footer">
+    <h3>themebetter</h3>
+    <p>关于我们<span>|</span>广告合作<span>|</span>免责声明
+    <p>大前端<span>|</span>WordPress主题<span>|</span>WordPress中文主题<sapn>|</sapn>WordPress教程<sapn>|</sapn>博客导航</p>
+    <p class="copyright">© 2017 themebetter 更好的WordPress主题，网站核心程序由WordPress驱动，备案/许可证号：豫ICP备15010202号</p>
+</footer>
+<script src="../js/libs/swiper-3.4.2.min.js"></script>
+<script>
+    var swiper = new Swiper(".swiper-container", {
+        direction: "horizontal",
+        loop: true,
+        pagination: ".swiper-pagination",
+        nextButton: ".swiper-button-next",
+        prevButton: ".swiper-button-prev",
+        paginationClickable: true
+    });
+
+    //显示二级菜单
+    /*var sidebar=document.getElementById("sidebar");
+    sidebar.onmouseover=function (e) {
+        var event=e||window.event;
+        var target=event.target||event.srcElement;
+        if(target.className=="has-submenu"){
+            var show_target=target.children[1];
+            show_target.style.visibility="visible";
+        }
+        console.log(target.children);
+    }
+    sidebar.onmouseout=function (e) {
+        var event=e||window.event;
+        var target=event.target||event.srcElement;
+        if(target.className=="has-submenu"){
+            var show_target=target.children[1];
+            show_target.style.visibility="hidden";
+        }
+        console.log(target.children);
+    }*/
+</script>
+</body>
+</html>

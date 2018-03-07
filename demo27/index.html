@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>浮动实现word文档里常见的文字环绕图片的排版效果</title>
+    <style>
+        .container-left,
+        .container-right{
+            width: 500px;
+            padding: 1em;
+            border: 1px solid #25aacd;
+            margin-bottom: 30px;
+        }
+
+        .container-left > img{
+            width: 200px;
+            float: left;
+            margin-right: 1em;
+        }
+
+        .container-left > p,
+        .container-right > p{
+            margin-top: 0;
+        }
+
+        .container-right > img{
+            width: 200px;
+            float: right;
+            margin-left: 1em;
+        }
+    </style>
+</head>
+<body>
+<h2>浮动实现word文档里常见的文字环绕图片的排版效果</h2>
+<div class="container-left">
+    <img src="../imgs/bawei.jpg"/>
+    <p>巴卫 （ともえtomoe），是漫画《元气少女缘结神》及同名改编动画《元气少女缘结神》和《元气少女缘结神◎[1]  》中的男主角，同时也是御影神社的第一神使。
+        巴卫原为战斗能力极强的妖狐，后因为爱上人类女子，与堕落之神黑磨缔结契约而想要变成人类，因未能完成契约受到死亡诅咒，为土地神御影所救，并在他的安排下与桃园奈奈生相遇相恋，成为桃园奈奈生的神使。个性傲娇、腹黑、毒舌，也有温柔和人妻的一面，最终巴卫变成了人类和奈奈生结了婚。</p>
+</div>
+<div class="container-right">
+    <img src="../imgs/bawei.jpg"/>
+    <p>巴卫 （ともえtomoe），是漫画《元气少女缘结神》及同名改编动画《元气少女缘结神》和《元气少女缘结神◎[1]  》中的男主角，同时也是御影神社的第一神使。
+        巴卫原为战斗能力极强的妖狐，后因为爱上人类女子，与堕落之神黑磨缔结契约而想要变成人类，因未能完成契约受到死亡诅咒，为土地神御影所救，并在他的安排下与桃园奈奈生相遇相恋，成为桃园奈奈生的神使。个性傲娇、腹黑、毒舌，也有温柔和人妻的一面，最终巴卫变成了人类和奈奈生结了婚。</p>
+</div>
+</body>
+</html>

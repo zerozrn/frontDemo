@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>字体的设置</title>
+    <style>
+        html{
+            font: 14px/1.5 "Consolas",Helvetica,Tahoma,"Microsoft Yahei","Hiragino Sans GB","Heiti SC","WenQuanYi Micro Hei",sans-serif;
+        }
+        pre{
+            background-color: #dcd9d9;
+        }
+        code{
+            font-family: Consolas;
+        }
+        p{
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+<h2>字体的设置</h2>
+<pre>
+    <code>
+        html{
+            font: 14px/1.5 "Consolas",Helvetica,Tahoma,"Microsoft Yahei","Hiragino Sans GB","Heiti SC","WenQuanYi Micro Hei",sans-serif;
+        }
+    </code>
+</pre>
+<div>
+    <h3>对font的简单解析</h3>
+    <p>（1）14px/1.5表示字号14个像素，1.5表示的是行高为字号的1.5倍</p>
+    <p>（2）"Consolas"是win下默认英文字体</p>
+    <p>（3）Helvetica是一个字体系列，是为了照顾Mac用户</p>
+    <p>（4）Tahoma是备份字体，若是Courier New没有，那么在win下将会采用此字体。</p>
+    <p>（5）"Microsoft Yahei"是中文显示的字体</p>
+    <p>（6）"Hiragino Sans GB"和"Heiti SC"分别是冬青黑体及黑体-简，它们是作为Mac上的替代方案。</p>
+    <p>（7）"WenQuanYi Micro Hei"是文泉驿微米黑，兼顾的是Linux系统</p>
+    <p>（8）sans-serif是一个字体系列，是无衬线体。当所有的字体都找不到时，操作系统会选择此系列下的某种字体显示</p>
+</div>
+<p>Most importantly, the flexbox layout is direction-agnostic as opposed to the regular layouts (block which is vertically-based and inline which is horizontally-based). While those work well for pages, they lack flexibility (no pun intended) to support large or complex applications (especially when it comes to orientation changing, resizing, stretching, shrinking, etc.).</p>
+</body>
+</html>

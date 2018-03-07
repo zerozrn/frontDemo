@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>弹性布局实现水平垂直居中元素</title>
+    <link rel="stylesheet" href="center.css">
+</head>
+<body>
+<h3>弹性布局实现垂直居中元素</h3>
+<p>可能用到的properties有justify-content、align-items、align-self，且跟轴的方向有关系，轴的方向不同，方法可能会不同。</p>
+<p>1 水平居中（父元素宽高未知，项目宽度已知，单项目）</p>
+<div class="container jc-center">
+    <div class="horizontal-center">
+        <h4>I am horizontally centered.</h4>
+        This box is horizontally centered. Even if the text in this box changes to make it wider or taller, the box will still be centered. Go ahead, give it a try. Just click to edit the text.
+    </div>
+</div>
+<p>关键代码如下：</p>
+<pre>
+    <code>
+        <span class="comment">/* 1、这是第一种方法 */</span>
+        .container{
+            display: flex;
+            justify-content: center;
+        }
+        .child{
+            <span class="comment">/* 为了阻止子元素撑开整个父元素，设置其位置 */</span>
+            align-self: flex-start;
+        }
+
+        <span class="comment">/* 2、这是第二种方法 */</span>
+        .container{
+            display: flex;
+            flex-direction: column;
+        }
+        .child{
+            align-self: center;
+        }
+    </code>
+</pre>
+<p>2 水平居中，居中一张图片（父元素宽高未知，项目宽度已知，单项目）</p>
+<div class="container jc-center">
+    <img src="../imgs/bawei.jpg" alt="">
+</div>
+<p>关键代码同1中的代码，只是在第一种写法中，图片无需设置align-self属性</p>
+<p>3 水平居中（多项目，父元素以及子元素宽高均未知）</p>
+<div class="container multi-center">
+    <div class="bg1">item1。</div>
+    <div class="bg2">item2。。</div>
+    <div class="bg3">item3。。。</div>
+</div>
+<p>4 水平垂直居中</p>
+<div class="container both-center">
+    <div class="item-both-center">
+        <h4>I am horizontally and vertically centered</h4>
+        This box is both vertically and horizontally centered. Even if the text in this box changes to make it wider or taller, the box will still be centered. Go ahead, give it a try. Just click to edit the text.
+    </div>
+</div>
+<pre>
+    <code>
+        <span class="comment">/* 1、这是第一种方法 */</span>
+        .container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* 轴的方向改变不影响结果 */
+            /* flex-direction: column; */
+        }
+
+        <span class="comment">/* 2、这是第二种方法 */</span>
+        .container{
+            display: flex;
+            justify-content: center;
+             /* 轴的方向改变不影响结果 */
+            /* flex-direction: column; */
+        }
+        .child{
+            align-self: center;
+        }
+    </code>
+</pre>
+<p>5 水平垂直居中一张图片</p>
+<div class="container both-center">
+    <img src="../imgs/bawei.jpg" alt="">
+</div>
+<p>关键代码同4中的代码，不论宽高如何改变，均不影响结果</p>
+<p>6 水平垂直居中（多项目）</p>
+<div class="container both-center">
+    <div class="bg1">item1。<br>item1<br>item1</div>
+    <div class="bg2">item2。。</div>
+    <div class="bg3">item3。。。<br>item3</div>
+</div>
+<p>关键代码同4中的代码，不论项目宽高如何改变，均不影响结果</p>
+</body>
+</html>

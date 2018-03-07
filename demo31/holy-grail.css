@@ -1,0 +1,36 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.holy-grail {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    background-color: lightcyan;
+}
+
+.container {
+    display: flex;
+    flex: auto;
+}
+
+.container > .nav,
+.container > .aside {
+    flex: 0 0 12em;
+    background-color: lightpink;
+}
+
+.container > .middle {
+    flex: auto;
+    background-color: darkseagreen;
+}
+
+.footer {
+    background-color: #312e2e;
+    color: #fff;
+}

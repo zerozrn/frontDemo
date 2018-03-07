@@ -1,0 +1,190 @@
+.container {
+    width: 40%;
+    border: 1px solid #25aacd;
+    padding: 1em;
+
+    /*  flex设置元素为弹性盒子布局模式  */
+    display: flex;
+}
+
+.flex {
+    padding: 1em;
+}
+
+.bg1 {
+    background-color: #f05a59;
+}
+
+.bg2 {
+    background-color: #818181;
+}
+
+.bg3 {
+    background-color: yellowgreen;
+}
+
+.bg4 {
+    background-color: deeppink;
+}
+
+.bg5 {
+    background-color: deepskyblue;
+}
+
+.box {
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    border-radius: 50%;
+    background-color: #fff;
+}
+
+.flex-direction {
+    width: 40%;
+    /*
+        flex-direction：row | row-reverse | column | column-reverse决定子元素的排列方向
+        row: 默认值，按照元素顺序从左向右水平排列。flex1 flex2 flex3
+        row-reverse: 按照元素顺序从右往左水平排列。flex3 flex2 flex1
+        column: 按照元素顺序从上向下垂直排列。 flex1
+                                            flex2
+                                            flex3
+        column-reverse: 按照元素顺序从下向上垂直排列。flex3
+                                                    flex2
+                                                    flex1
+    */
+    flex-direction: row-reverse;
+}
+
+.flex-wrap {
+    width: 20%;
+    /*
+        flex-wrap: nowrap | wrap | wrap-reverse 决定在没有空间显示时是否换行
+        nowrap: 默认值，不换行
+        wrap: 换行，第一行在上方
+        wrap-reverse: 换行，第一行在下方
+    */
+    flex-wrap: wrap-reverse;
+}
+
+.jc-flex-start {
+    justify-content: flex-start; /* 默认值，左对齐 */
+}
+
+.jc-flex-end {
+    justify-content: flex-end; /* 右对齐 */
+}
+
+.jc-center {
+    justify-content: center; /* 居中 */
+}
+
+.jc-space-between {
+    height: 300px;
+    flex-direction: column;
+    justify-content: space-between; /* 两端对齐，子元素之间的间距相等  */
+}
+
+.jc-space-around {
+    justify-content: space-around; /* 每个子元素两侧的间距相等，由此子元素两侧的间距比两侧子元素与边框的间距大一倍 */
+}
+
+.ai-flex-start {
+    align-items: flex-start; /* 交叉轴起点对齐 */
+}
+
+.ai-flex-end {
+    align-items: flex-end; /* 交叉轴终点对齐 */
+}
+
+.ai-center {
+    flex-direction: column;
+    align-items: center; /* 交叉轴中点对齐 */
+}
+
+.ai-baseline {
+    align-items: baseline; /* 项目中第一行文字基线对齐，若有图片，则是图片的底部 */
+}
+
+.img {
+    width: 100px;
+}
+
+.ai-stretch {
+    height: 240px;
+    align-items: stretch; /* 默认值，若项目未设置高或者高为auto，则会铺满整个屏幕 */
+}
+
+.ac-box {
+    width: 20%;
+    height: 290px;
+    flex-wrap: wrap;
+}
+
+.ac-h {
+    height: 100px;
+}
+
+.ac-flex-start {
+    align-content: flex-start; /* 定义项目与轴的起点对齐 */
+}
+
+.ac-flex-end {
+    align-content: flex-end; /* 定义项目与轴的终点对齐 */
+}
+
+.ac-center {
+    align-content: center;
+}
+
+.ac-space-between {
+    width: 40%;
+    flex-direction: column;
+    align-content: space-between;
+}
+
+.ac-space-round {
+    height: 370px;
+    padding: 0;
+    align-content: space-around;
+}
+
+.ac-stretch {
+    align-content: stretch;
+}
+
+.order1 {
+    order: 1;
+}
+
+.order2 {
+    order: 2;
+}
+
+.grow1 {
+    flex-grow: 1;
+}
+
+.grow2 {
+    flex-grow: 2;
+}
+
+.flex-shrink {
+    width: 400px;
+}
+
+.flex-shrink > div {
+    width: 100px;
+}
+
+.shrink0 {
+    flex-shrink: 0;
+}
+
+.shrink1 {
+    flex-shrink: 1.5;
+}
+
+.shrink2 {
+    flex-shrink: 2;
+}

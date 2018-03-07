@@ -1,0 +1,47 @@
+pre{
+    background-color: #dcd9d9;
+    width: 50%;
+}
+pre,
+code{
+    font-family: "Courier New", Helvetica, sans-serif;
+    font-size: 1em;
+}
+.comment{
+    color: forestgreen;
+}
+.container{
+    border: 1px solid #dcd9d9;
+    padding: 1.5em;
+    display: flex;
+}
+.jc-center{
+    justify-content: center;
+}
+.horizontal-center{
+    width: 70%;
+    background-color: #f4f3f0;
+    padding: 0 1em 1em;
+    align-self: flex-start;
+}
+.bg1{
+    background-color: #25aacd;
+}
+.bg2{
+    background-color: deeppink;
+}
+.bg3{
+    background-color: lightgreen;
+}
+.multi-center{
+    flex-direction: column;
+    align-items: center;
+}
+.both-center{
+    justify-content: center;
+    align-items: center;
+}
+.item-both-center{
+    background-color: #46b980;
+    padding: 1em;
+}

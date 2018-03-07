@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css弹性布局（1）</title>
+    <!-- 在HTML5中不需要指定type="text/css"，因为是默认值 -->
+    <link rel="stylesheet" href="flex.css"/>
+</head>
+<body>
+<h2>css弹性布局Flexible Box（1）</h2>
+<p style="color: red">以下属性用在display:flex的容器上</p>
+<h3>1 flex-direction: row-reverse;</h3>
+<div class="container flex-direction">
+    <div class="bg1 flex">flex1。</div>
+    <div class="bg2 flex">flex2。。</div>
+    <div class="bg3 flex">flex3。。。</div>
+</div>
+<h3>2 flex-wrap: wrap-reverse;</h3>
+<div class="container flex-wrap">
+    <div class="bg1 flex">
+        <div class="box">flex1</div>
+    </div>
+    <div class="bg2 flex">
+        <div class="box">flex2</div>
+    </div>
+    <div class="bg3 flex">
+        <div class="box">flex3</div>
+    </div>
+    <div class="bg4 flex">
+        <div class="box">flex4</div>
+    </div>
+    <div class="bg5 flex">
+        <div class="box">flex5</div>
+    </div>
+</div>
+<h3>3 justify-content定义项目在x轴上的对齐方式，与轴的方向有关</h3>
+<p>(1)justify-content: flex-start默认值，与轴的起点对齐</p>
+<div class="container jc-flex-start">
+    <div class="bg1 flex">flex1。</div>
+    <div class="bg2 flex">flex2。。<br/>flex2。。</div>
+    <div class="bg3 flex">flex3。。。</div>
+</div>
+<p>(2)justify-content: flex-end与轴的终点对齐</p>
+<div class="container jc-flex-end">
+    <div class="bg1 flex">flex1。</div>
+    <div class="bg2 flex">flex2。。</div>
+    <div class="bg3 flex">flex3。。。</div>
+</div>
+<p>(3)justify-content: center居中</p>
+<div class="container jc-center">
+    <div class="bg1 flex">flex1。</div>
+    <div class="bg2 flex">flex2。。</div>
+    <div class="bg3 flex">flex3。。。</div>
+</div>
+<p>(4)justify-content: space-between两端对齐，项目之间的间距相等，轴方向从上到下</p>
+<div class="container jc-space-between">
+    <div class="bg1 flex">flex1。</div>
+    <div class="bg2 flex">flex2。。</div>
+    <div class="bg3 flex">flex3。。。</div>
+</div>
+<p>(5)justify-content: space-around每个项目两侧的间距相等，由此之间的间距比项目与边框之间的间距大一倍。</p>
+<div class="container jc-space-around">
+    <div class="bg1 flex">flex1。</div>
+    <div class="bg2 flex">flex2。。</div>
+    <div class="bg3 flex">flex3。。。</div>
+</div>
+<h3>4 align-items定义项目在y轴上如何对齐，与轴的方向有关</h3>
+<p>(1)align-items: flex-start 轴起点对齐，默认值</p>
+<div class="container ai-flex-start">
+    <div class="bg1 flex">flex1。</div>
+    <div class="bg2 flex">flex2。。<br/>flex2。。。</div>
+    <div class="bg3 flex">flex3。。。</div>
+</div>
+<p>(2)align-items: flex-end轴终点对齐</p>
+<div class="container ai-flex-end">
+    <div class="bg1 flex">flex1。</div>
+    <div class="bg2 flex">flex2。。</div>
+    <div class="bg3 flex">flex3。。。<br/>flex3。。。</div>
+</div>
+<p>(3)align-items: center轴中点对齐，轴方向从上到下</p>
+<div class="container ai-center">
+    <div class="bg1 flex">flex1。</div>
+    <div class="bg2 flex">flex2。。</div>
+    <div class="bg3 flex">flex3。。。<br/>flex3。。。</div>
+</div>
+<p>(4)align-items: baseline项目中第一行文字基线对齐，若有图片，则是图片的底部</p>
+<div class="container ai-baseline">
+    <div class="bg1 flex" style="font-size: 30px;">flex1。</div>
+    <div class="bg2 flex">
+        <img src="../imgs/bawei.jpg" class="img">
+        flex4。。
+    </div>
+    <div class="bg3 flex">flex3。。。<br/>flex3。。。</div>
+</div>
+<p>(5)align-items: stretch 默认值，若是项目未设置高或者设为auto，则会铺满，占据整个区域</p>
+<div class="container ai-stretch">
+    <div class="bg1 flex" style="font-size: 30px;height: 150px;">flex1。高150px</div>
+    <div class="bg2 flex" style="height: 100px">
+        <img src="../imgs/bawei.jpg" class="img">
+        高100px
+    </div>
+    <div class="bg3 flex">flex3。。。<br/>flex3。。。未设置高度，铺满容器内容</div>
+</div>
+<h3>4 align-content定义多根轴线（多根x轴，或者多根y轴）的对齐方式（前提是项目未占满容器所剩空间），所以如果项目只有一根轴线，该属性不起作用。</h3>
+<p>(1)align-content: flex-end定义与轴的终点对齐，但是只有一根x轴，未起作用</p>
+<div class="container ac-box ac-flex-end">
+    <div class="bg1 flex ac-h">
+        <div class="box">flex1</div>
+    </div>
+    <div class="bg2 flex ac-h">
+        <div class="box">flex2</div>
+    </div>
+    <div class="bg3 flex ac-h">
+        <div class="box">flex3</div>
+    </div>
+</div>
+<p>(2)align-content: flex-start与轴（y轴）的起点对齐</p>
+<div class="container ac-box ac-flex-start">
+    <div class="bg1 flex ac-h">
+        <div class="box">flex1</div>
+    </div>
+    <div class="bg2 flex ac-h">
+        <div class="box">flex2</div>
+    </div>
+    <div class="bg3 flex ac-h">
+        <div class="box">flex3</div>
+    </div>
+    <div class="bg4 flex">
+        <img src="../imgs/bawei.jpg" class="img">
+        <br/>flex4。。
+    </div>
+    <div class="bg5 flex">flex5。。。<br/>flex5。。。</div>
+</div>
+<p>(3)align-content: flex-end与轴（x轴）的终点对齐</p>
+<div class="container ac-box ac-flex-end" style="flex-direction: column;width: 40%">
+    <div class="bg1 flex ac-h">
+        <div class="box">flex1</div>
+    </div>
+    <div class="bg2 flex ac-h">
+        <div class="box">flex2</div>
+    </div>
+    <div class="bg3 flex ac-h">
+        <div class="box">flex3</div>
+    </div>
+    <div class="bg4 flex">
+        <img src="../imgs/bawei.jpg" class="img">
+        <br/>flex4。。
+    </div>
+    <div class="bg5 flex">flex5。。。<br/>flex5。。。</div>
+</div>
+<p>(4)align-content: center与轴（y轴）的中点对齐，<strong>可使元素水平或者垂直居中</strong></p>
+<div class="container ac-box ac-center">
+    <div class="bg1 flex ac-h">
+        <div class="box">flex1</div>
+    </div>
+    <div class="bg2 flex ac-h">
+        <div class="box">flex2</div>
+    </div>
+    <div class="bg3 flex ac-h">
+        <div class="box">flex3</div>
+    </div>
+    <div class="bg4 flex">
+        <img src="../imgs/bawei.jpg" class="img">
+        <br/>flex4。。
+    </div>
+    <div class="bg5 flex">flex5。。。<br/>flex5。。。</div>
+</div>
+<p>(5)align-content: space-between与轴的起点和终点对齐，轴线之间的间距平分分布，即相等</p>
+<div class="container ac-box ac-space-between">
+    <div class="bg1 flex ac-h">
+        <div class="box">flex1</div>
+    </div>
+    <div class="bg2 flex ac-h">
+        <div class="box">flex2</div>
+    </div>
+    <div class="bg3 flex ac-h">
+        <div class="box">flex3</div>
+    </div>
+    <div class="bg4 flex">
+        <img src="../imgs/bawei.jpg" class="img">
+        <br/>flex4。。
+    </div>
+    <div class="bg5 flex">flex5。。。<br/>flex5。。。</div>
+</div>
+<p>(6)align-content: space-round轴线之间的间距相等，所以轴线之间的间距比轴线与边框之间的间距大一倍</p>
+<div class="container ac-box ac-space-round">
+    <div class="bg1 flex ac-h">
+        <div class="box">flex1</div>
+    </div>
+    <div class="bg2 flex ac-h">
+        <div class="box">flex2</div>
+    </div>
+    <div class="bg3 flex ac-h">
+        <div class="box">flex3</div>
+    </div>
+    <div class="bg4 flex">
+        <img src="../imgs/bawei.jpg" class="img">
+        <br/>flex4。。
+    </div>
+    <div class="bg5 flex">flex5。。。<br/>flex5。。。</div>
+    <div class="bg1 flex">flex6。。。。</div>
+</div>
+<p>(7)align-content: stretch在未给项目设置高或者宽时，项目占满对应轴上空间</p>
+<div class="container ac-box ac-stretch">
+    <div class="bg1 flex">
+        <div class="box">flex1</div>
+    </div>
+    <div class="bg2 flex">
+        <div class="box">flex2</div>
+    </div>
+    <div class="bg3 flex">
+        <div class="box">flex3</div>
+    </div>
+    <div class="bg4 flex">
+        <img src="../imgs/bawei.jpg" class="img">
+        <br/>flex4。。
+    </div>
+    <div class="bg5 flex">flex5。。。<br/>flex5。。。</div>
+</div>
+<p style="color: red">以下属性用在弹性盒子的项目（display:flex的子元素）上</p>
+<h3>5 order：[integer > 0]定义项目的排列顺序。数值越小，排列越靠前，默认是0</h3>
+<div class="container">
+    <div class="bg1 flex">flex1。order=默认值</div>
+    <div class="bg2 flex order2">flex2。。order=2</div>
+    <div class="bg3 flex order1">flex3。。。order=1</div>
+</div>
+<h3>6 flex-grow定义项目的放大比例，默认是0，即就算是存在剩余空间，也不放大</h3>
+<div class="container">
+    <div class="bg1 flex grow1">flex1。flex-grow=1</div>
+    <div class="bg2 flex grow2">flex2。。flex-grow=2</div>
+    <div class="bg3 flex grow2">flex3。。。flex-grow=2</div>
+    <div class="bg4 flex grow2">flex4。。。。flex-grow=2</div>
+</div>
+<h3>7 flex-shrink定义项目的缩小比例，默认是1，即如果空间不足，该项目将缩小</h3>
+<div class="container flex-shrink">
+    <div class="bg1 flex shrink1">1</div>
+    <div class="bg2 flex shrink0">2</div>
+    <div class="bg3 flex shrink1">3</div>
+    <div class="bg4 flex shrink2">4</div>
+    <div class="bg5 flex shrink2">5</div>
+</div>
+</body>
+</html>

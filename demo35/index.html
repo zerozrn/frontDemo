@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>元素之间间距相等的九宫格布局</title>
+    <style>
+        .container{
+            width: 80%;
+            margin: auto;
+            border: 1px solid #818181;
+            -webkit-box-sizing: border-box;
+               -moz-box-sizing: border-box;
+                    box-sizing: border-box;
+            padding-top: 20px;
+        }
+        .box{
+            margin-left: -1%;
+        }
+        .box:after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .box > div{
+            width: 24%;
+            height: 0;
+            /* 高度自适应宽度，且与宽度相等 */
+            padding-bottom: 24%;
+            background-color: #25aacd;
+            color: #fff;
+            margin: 0 0 20px 1%;
+            float: left;
+
+            /*-webkit-box-sizing: border-box;
+               -moz-box-sizing: border-box;
+                    box-sizing: border-box;
+            border: 1px solid red;   加边框的情况*/
+        }
+        code {
+            font-family: "Courier New", Helvetica, sans-serif;
+            padding: 2px 10px;
+            background-color: #ddd;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            -o-border-radius: 3px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+<h3>元素之间间距相等的九宫格布局</h3>
+<p>元素的宽度与其左外边距之和刚好是100%，但是每间隔4个元素，会向下一行排列，每行的第一个元素左侧也会显示出相应的外边距，如何解决此问题呢？</p>
+<p>给它们的父元素设置相应外边距，值为元素外边距的负值。本例中，子<code>margin-left:1%;</code>那么父<code>margin-left:-1%;</code></p>
+<div class="container">
+    <div class="box">
+        <div>item1</div>
+        <div>item2</div>
+        <div>item3</div>
+        <div>item4</div>
+        <div>item5</div>
+    </div>
+</div>
+</body>
+</html>
