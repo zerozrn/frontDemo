@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--
+        meta说明,有3个属性:name[描述网页],http-equiv[向浏览器传递一些有用的信息],charset[字符编码]
+        name主要属性有以下几个,
+        author: 作者信息
+        keywords: 关键字,告诉搜索引擎网页的关键字是什么
+        description:描述,告诉搜索引擎网站的内容
+        generator: 说明网采用什么软件制作
+    -->
+    <meta charset="UTF-8"> <!-- h5中特有的写法,charset是h5中新的属性  -->
+    <meta name="author" content="Sakura">
+    <meta name="keywords" content="html,css,javascript,前端开发,典型demo,前端小技巧整理">
+    <meta name="description" content="前端小技巧整理,目录索引,标记demo中的主要内容,包括功能等">
+    <meta name="generator" content="phpStorm">
+    <!-- edge模式，通知IE采用其所支持的最新的模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <!--<meta http-equiv="refresh" content="7">--><!-- 每7秒刷新一下页面 -->
+    <title>Sakura目录索引--快速找到对应demo的内容</title>
+    <!--  这是实现title上显示icon功能的做法  -->
+    <link rel="icon" href="imgs/logo.png"/>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            font-family: "Courier New", Helvetica, sans-serif;
+            font-size: 14px;
+        }
+        .container{
+            padding: 0 25px;
+        }
+        .container h2{
+            text-align: center;
+            margin: 25px 0;
+        }
+        table{
+            width: 100%;
+            /* 合并单元格边框  */
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        table,
+        table tr th,
+        table tr td {
+            border: 1px solid #dcd9d9;
+        }
+        table tr th,
+        table tr td {
+            padding: 8px 15px;
+            text-align: center;
+        }
+        footer{
+            height: 30px;
+            line-height: 30px;
+            background: #312e2e;
+            color: #fff;
+            text-align: center;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>前端小技巧整理之目录索引</h2>
+    <p>
+        front-demo整理了前端包括css,js在内的小技巧,这是一个索引,介绍各个demo的内容,以及快速跳转到对应demo.
+    </p>
+    <table id="index-table">
+        <thead>
+            <tr>
+                <th>序号</th>
+                <th>所在目录</th>
+                <th>知识点类别</th>
+                <th>内容</th>
+                <th>跳转</th>
+            </tr>
+        </thead>
+        <tbody id="index-tbody">
+
+        </tbody>
+    </table>
+</div>
+<footer>
+    copyright &copy; Sakura
+</footer>
+<script src="js/libs/jquery-1.11.3.min.js"></script>
+<script>
+
+    $.ajax({
+        url:"directory.json",
+        success:function (res) {
+            var tbody = document.getElementById("index-tbody");
+            res.forEach(function (value) {
+                var str = '<tr>' +
+                    '<td>' + value.no + '</td>' +
+                    '<td>' + value.directory + '</td>' +
+                    '<td>' + value.category + '</td>' +
+                    '<td>' + value.content + '</td>' +
+                    '<td><a href="' + value.directory + '/index.html" target="_blank">Go</a></td>' +
+                    '</tr>';
+                tbody.innerHTML += str;
+            });
+            var table = document.getElementById("index-table");
+            // 表格行悬停改变背景色
+            var trs = table.tBodies[0].rows; // 返回tbody内所有的tr
+            for (var i = 0; i < trs.length; i++) {
+                trs[i].onmouseover = function () {
+                    this.style.backgroundColor = "lightgreen";
+                }
+                trs[i].onmouseout = function () {
+                    this.style.backgroundColor = "";
+                }
+            }
+
+        },
+        error:function (err) {
+            alert(err);
+        }
+    });
+</script>
+</body>
+</html>
