@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css响应式布局--左右2列响应式</title>
+    <style>
+        /* 第一种情况  */
+        .fixed-width {
+            width: 300px;
+            float: left;
+            margin-right: -300px;
+            background-color: #f05a59;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .fixed-width > img {
+            width: 100%;
+        }
+
+        .auto-width {
+            width: 100%;
+            /*float: left;*/ /*  看来右侧不需要左浮动  */
+        }
+
+        .right-content {
+            margin-left: 300px;
+            background-color: #25aacd;
+        }
+
+        /*  第二种情况  */
+        .fixed-width1 {
+            width: 300px;
+            float: left;
+            margin-left: -300px;
+            background-color: #f05a59;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .fixed-width1 > img {
+            width: 100%;
+        }
+
+        .auto-width1 {
+            width: 100%;
+            float: left;
+        }
+
+        .left-content {
+            margin-right: 300px;
+            background-color: #25aacd;
+        }
+    </style>
+</head>
+<body>
+    <p>1 功能需求:左侧div宽度固定,右侧div(<span style="color: red">无需浮动</span>)随屏幕宽度变化而变化,属于响应式一种</p>
+    <div>
+        <div class="fixed-width">
+            左边的内容,宽度固定
+            <img src="../imgs/bawei.jpg"/>
+        </div>
+        <div class="auto-width">
+            <div class="right-content">右边的内容,随屏幕宽度变化而变化</div>
+        </div>
+    </div>
+    <div style="clear: both;"></div>
+
+    <p>2 同理,右侧div宽度固定,左侧div随屏幕宽度变化而变化(<span style="color: red">均需浮动</span>)</p>
+    <div>
+        <div class="auto-width1">
+            <div class="left-content">左边的内容,随着屏幕宽度变化而变化</div>
+        </div>
+        <div class="fixed-width1">
+            右边的内容,宽度固定
+            <img src="../imgs/111.jpg"/>
+        </div>
+    </div>
+    <div style="clear: both;"></div>
+    <p style="color: red;">注:前端面试经典题,请牢记</p>
+</body>
+</html>

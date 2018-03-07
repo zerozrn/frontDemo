@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自适应内部元素</title>
+    <style>
+        figure{
+            border: 1px dotted #818181;
+            padding: 15px;
+            max-width: 300px;
+            max-width: min-content;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        figure > img{
+            max-width: inherit;
+        }
+    </style>
+</head>
+<body>
+<h3>自适应内部元素</h3>
+<p>场景: 如果不给元素设置一个具体的height, 它就会自动适应其内容的高度. 假设我们希望width也是这样, 该怎么做呢?</p>
+<p style="color: red;">需求: 我们希望figure能跟它所包含的图片一样宽(图片尺寸往往不是固定的),而且水平居中</p>
+<p>解决方案: css3之min-content, 这个容器内部最大的不可断行元素的宽度(即最宽的单词,图片或具有固定宽度的盒元素)</p>
+<!--  figure标签规定独立的流内容(图片,图表,照片,代码等等),IE9及以上浏览器以及主流浏览器均支持此标签  -->
+<figure>
+    <img src="../imgs/bawei.jpg"/>
+    <figcaption>
+        The great Sir Adam Catlace was named after Countess Ada Lovelace,the first programmer.
+    </figcaption>
+</figure>
+<p>Do you believe me?I am president of the state.</p>
+<p>min-content: 采用内部元素最小宽度值最大的那个元素的宽度作为最终容器的宽度</p>
+</body>
+</html>
