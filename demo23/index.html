@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>连续的图像边框</title>
+    <style>
+        .something-meaningful {
+            background: url("../imgs/stone-art.jpg");
+            background-size: cover;
+            padding: 1em;
+            width: 240px;
+        }
+
+        .something-meaningful > div {
+            background: white;
+            padding: 1em;
+        }
+
+        .continuous-image-border {
+            width: 240px;
+            padding: 1em;
+            border: 1em solid transparent;
+            /*background: linear-gradient(white,white),
+                        url("../imgs/stone-art.jpg");*/
+            /*background-size: cover;
+            background-clip: padding-box, border-box; */ /* 定义背景的绘制区域 */
+            /*  边框的图片看上去有怪异的拼接效果，原因是background-origin的默认值是padding-box  */
+            /*background-origin: border-box;*/ /* 规定background-position相对于什么位置定位  */
+
+            /*  简写模式 */
+            background: linear-gradient(white, white) padding-box,
+            url("../imgs/stone-art.jpg") border-box 0 0 / cover; /* 0 0 表示background-position的设置*/
+        }
+
+        .old-envelope {
+            width: 240px;
+            padding: 1em;
+            /*border: 1em solid transparent;
+            background: linear-gradient(white,white) padding-box,
+                        repeating-linear-gradient(-45deg,
+                        red 0,red 12.5%,
+                        transparent 0,transparent 25%,
+                        #58a 0,#58a 37.5%,
+                        transparent 0,transparent 50%)
+                        0 / 5em 5em;*/
+
+            /*  也可以用border-image实现，弊端：改动border-image-slice时，
+            也必须改动border-width使其相互匹配，且border-image-slice不能使用em单位  */
+            border: 16px solid transparent;
+            border-image: 16 repeating-linear-gradient(-45deg,
+            red 0, red 1em,
+            transparent 0, transparent 2em,
+            #58a 0, #58a 3em,
+            transparent 0, transparent 4em);
+        }
+
+        @keyframes ants {
+            to {background-position: 100%}
+        }
+
+        .ant-go {
+            width: 200px;
+            height: 100px;
+            padding: 1em;
+            border: 1px solid transparent;
+            background: linear-gradient(white, white) padding-box,
+            repeating-linear-gradient(-45deg,
+                    black 0, black 25%, white 0, white 50%) 0 / .6em .6em;
+            animation: ants 12s linear infinite;
+        }
+
+        .border-image{
+            width: 340px;
+            padding: 1em;
+            margin-bottom: 20px;
+            border: 15px solid transparent;
+            border-image: 33.34% url("../imgs/dot.svg");
+        }
+
+        .round{
+            border-image-repeat: round;
+        }
+
+        .repeat{
+            border-image-repeat: repeat;
+        }
+    </style>
+</head>
+<body>
+<h2>连续的图像边框</h2>
+<p>场景: 将一张图片应用于边框，并且希望此元素在扩大或者缩小时，这幅图片可以自动延伸并且覆盖完整的边框区域。</p>
+<h4>解决方案1：使用两个HTML元素，一把图片设为背景，二用来存放内容</h4>
+<div class="something-meaningful">
+    <div>I have a nice stone art border,
+        don't I look pretty?I have a nice stone art border,
+        don't I look pretty?I have a nice stone art border,
+        don't I look pretty?
+    </div>
+</div>
+<p>这是很简单的方法，但是这种方法将结构和表现混合在一起，而且在某些场景下，修改HTML是做不到的。</p>
+<h4>解决方案2：一个HTML元素，在背景图片上面叠加一层纯白的实色背景</h4>
+<div class="continuous-image-border">
+    I have a nice stone art border,
+    don't I look pretty?I have a nice stone art border,
+    don't I look pretty?
+</div>
+<h3>利用上述技巧制作老式信封</h3>
+<div class="old-envelope">My border is reminiscent of vintage envelopes, how cool is that?</div>
+<h3>利用上述技巧生成蚂蚁行军路线</h3>
+<div class="ant-go"></div>
+<h3>border-image的简单使用</h3>
+<div class="border-image">Bacon ipsum dolor amet eu adipisicing elit tongue ground round ex fatback proident kielbasa ham hock. Sausage beef beef ribs aliquip t-bone mollit. Quis beef tri-tip sunt, cupim ut magna salami t-bone. Ut laboris bresaola ribeye biltong landjaeger.
+    Chuck pork belly sed sausage.</div>
+<div class="border-image round">Bacon ipsum dolor amet eu adipisicing elit tongue ground round ex fatback proident kielbasa ham hock. Sausage beef beef ribs aliquip t-bone mollit. Quis beef tri-tip sunt, cupim ut magna salami t-bone. Ut laboris bresaola ribeye biltong landjaeger.
+    Chuck pork belly sed sausage.</div>
+<div class="border-image repeat">Bacon ipsum dolor amet eu adipisicing elit tongue ground round ex fatback proident kielbasa ham hock. Sausage beef beef ribs aliquip t-bone mollit. Quis beef tri-tip sunt, cupim ut magna salami t-bone. Ut laboris bresaola ribeye biltong landjaeger.
+    Chuck pork belly sed sausage.</div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css3 width:fill-available下div垂直居中</title>
+    <style>
+        .box{
+            width: 50%;
+            height: 300px;
+            /* 行高控制垂直居中  */
+            line-height: 300px;
+            background-color: #dcd9d9;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .fill{
+            /* 元素内联,响应行高和vertical-align控制  */
+            display: inline-block;
+            vertical-align: middle;
+            background-color: #25aacd;
+            color: #fff;
+            line-height: 25px;
+            padding: 10px;
+
+            /* 宽度如块状元素般表现,自动填满剩余空间  */
+            width: -webkit-fill-available;
+            width: -moz-fill-available;
+            width: -moz-available;
+            width: fill-available;
+        }
+    </style>
+</head>
+<body>
+<strong>width:fill-available;的实例</strong>
+<div class="box">
+    <div class="fill">
+        width:fill-available可以让元素的宽度表现为默认的block水平元素的尺寸表现.<br/>
+        但这里实际上是display:inline-block;是水平的.<br/>
+        于是,我们可以保证宽度满尺寸自适应的同时使用line-height实现近似的垂直居中的效果.
+    </div>
+</div>
+<p>fill-available: 撑满可用空间</p>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>半透明边框和多重边框</title>
+    <style>
+        .box {
+            width: 50%;
+            height: 200px;
+            padding-top: 80px;
+            padding-bottom: 50px;
+            background: url("../imgs/stone-art.jpg");
+            margin-bottom: 20px;
+        }
+
+        .translucent-border {
+            margin: auto;
+            line-height: 25px;
+            padding: 15px;
+            width: 200px;
+
+            background: white;
+            border: 10px solid hsla(0, 0%, 100%, .5);
+            /*  默认情况下,背景会延伸到边框所在区域下层,
+            background-clip:padding-box的话,浏览器会用内边距的外沿裁切掉背景,
+            自此可看到半透明白色边框  */
+            background-clip: padding-box; /*  css3 */
+        }
+
+        .multi-border1 {
+            width: 200px;
+            height: 150px;
+            margin-left: 40px;
+            margin-bottom: 40px;
+            background: lightgreen;
+
+            /*
+               box-shadow: h-shadow v-shadow blur spread color inset;
+               @param h-shadow 水平阴影的位置[required]
+               @param v-shadow 垂直阴影的位置[required]
+               @param blur 模糊距离[optional]
+               @param spread 阴影尺寸[optional]
+               @param color 阴影颜色[optional]
+               @param inset 将外部阴影(outset)改为内部阴影[optional]
+            */
+            box-shadow: 0 0 0 10px blue,
+            0 0 0 15px deeppink,
+            8px 8px 10px 15px rgba(0, 0, 0, .6);
+        }
+
+        .multi-border2 {
+            width: 200px;
+            height: 150px;
+            margin: 30px;
+            border-radius: 20px;
+
+            background: yellowgreen;
+            border: 10px solid #655;
+            /*  描的边不贴合圆角  */
+            outline: 5px solid deeppink;
+            /*outline-offset: -20px;  [css3]控制跟元素边缘的间距,接受负值*/
+        }
+    </style>
+</head>
+<body>
+<h3>1 半透明边框</h3>
+<p>功能需求: 给某个容器设置白色背景和半透明白色边框</p>
+<div class="box">
+    <div class="translucent-border">Can I have semi-transparent borders?Pretty please?</div>
+</div>
+<h3>2 多重边框</h3>
+<p>功能需求: 给容器添加多重边框</p>
+<p>(1)box-shadow方案</p>
+<div class="multi-border1"></div>
+<p>(2)outline方案</p>
+<div class="multi-border2"></div>
+</body>
+</html>

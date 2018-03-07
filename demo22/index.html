@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>条纹背景</title>
+    <style>
+        .margin-bottom {
+            margin-bottom: 30px;
+        }
+
+        .box {
+            width: 300px;
+            height: 170px;
+        }
+
+        .item {
+            padding-left: 75px;
+            line-height: 25px;
+        }
+
+        .base-gradient {
+            background: linear-gradient(#fb3, #58a);
+        }
+
+        .close-color-gradient {
+            background: linear-gradient(#fb3 40%, #58a 60%);
+        }
+
+        .same-position-gradient {
+            background: linear-gradient(#fb3 50%, #58a 50%);
+        }
+
+        .repeat-gradient {
+            background: linear-gradient(#fb3 50%, #58a 50%);
+            background-size: 100% 30px;
+        }
+
+        .diff-width-gradient {
+            /*background: linear-gradient(#fb3 30%, #58a 30%);
+            background-size: 100% 30px;*/
+            /*  为了让代码更加DRY,还有另外一种写法,浏览器会将0调整为前一个色标的位置值  */
+            background: linear-gradient(#fb3 32%, #58a 0);
+            background-size: 100% 30px;
+        }
+
+        .multi-color-gradient {
+            /*background: linear-gradient(#fb3 33.3%,#58a 0,#58a 66.6%,yellowgreen 0);*/ /* 3种颜色 */
+            background: linear-gradient(#fb3 25%, #58a 0, #58a 50%, deeppink 0, deeppink 75%, yellowgreen 0);
+            background-size: 100% 60px;
+        }
+
+        .vertical-gradient {
+            /*background: linear-gradient(to right,#fb3 50%,#58a 0);*/
+            background: linear-gradient(90deg, #fb3 50%, #58a 0); /* 与上一句有同样的效果 */
+            background-size: 30px 100%;
+        }
+
+        .try-oblique {
+            background: linear-gradient(45deg, #fb3 50%, #58a 0);
+            background-size: 30px 30px;
+        }
+
+        .rotate-bg {
+            background: linear-gradient(45deg, #fb3 25%, #58a 0, #58a 50%,
+            #fb3 0, #fb3 75%, #58a 0);
+            background-size: 80px 80px;
+        }
+
+        .change-angle {
+            background: linear-gradient(60deg, #fb3 25%, #58a 0, #58a 50%,
+            #fb3 0, #fb3 75%, #58a 0);
+            background-size: 80px 80px;
+        }
+
+        .any-angle {
+            background: repeating-linear-gradient(60deg, #fb3, #fb3 15px, #58a 0, #58a 30px, deeppink 0, deeppink 45px);
+        }
+
+        .similar-color {
+            background: repeating-linear-gradient(30deg, #79b, #79b 15px, #58a 0, #58a 30px);
+        }
+
+        .back-gradient {
+            background: deeppink;
+            background-image: repeating-linear-gradient(30deg,
+            hsla(0, 0%, 100%, .1),
+            hsla(0, 0%, 100%, .1) 15px,
+            transparent 0, transparent 30px);
+        }
+    </style>
+</head>
+<body>
+<h2 style="text-align: center">条纹背景</h2>
+<div>
+    <p>基本知识点:</p>
+    <p>line-gradient: direction, color-stop1 [position], ...;</p>
+    <p>@param direction: 渐变方向, 可以设置angle或者方位</p>
+    <div class="item">
+           to left: 设置渐变从右到左,相当于270deg.<br/>
+           to right: 设置渐变从左到右,相当于90deg.<br/>
+           to top: 设置渐变从下到上,相当于0deg.<br/>
+           to bottom: 设置渐变从上到下,相当于180deg.默认值,等同于留空不写.<br/>
+           to left top: 设置渐变从右下到左上<br/>
+           to right top: 设置渐变从左下到右上<br/>
+           to left bottom: 设置渐变从右上到左下<br/>
+           to right bottom: 设置渐变从左上到右下<br/>
+    </div>
+    <p>@param color-stop1: 渐变色,至少2种渐变色</p>
+    <p>[position]: 设置渐变色位置值,像素值|百分比|em</p>
+</div>
+<h4>1 水平条纹</h4>
+<div class="margin-bottom">
+    <p>(1)基本渐变</p>
+    <div class="box base-gradient"></div>
+</div>
+<div class="margin-bottom">
+    <p>(2)拉近色标的渐变</p>
+    <div class="box close-color-gradient"></div>
+    <p>可以看到, 两个色标之间的渐变效果正在减弱, 将近出现分割线, 设想两个色标位置值相同会怎样?</p>
+</div>
+<div class="margin-bottom">
+    <p>(3)初次尝试,色标位置值相同</p>
+    <div class="box same-position-gradient"></div>
+    <p>可以看到, 已经创建了两条巨大的等宽条纹,没有任何的渐变效果了</p>
+</div>
+<div class="margin-bottom">
+    <p>(4)平铺的等宽条纹</p>
+    <div class="box repeat-gradient"></div>
+    <p>因为渐变是一种由代码生成的图像, 我们能像对待其他任何背景图像那样来对待它,所以利用background-size调整其尺寸</p>
+</div>
+<div class="margin-bottom">
+    <p>(5)平铺的不等宽条纹</p>
+    <div class="box diff-width-gradient"></div>
+    <p>是调整了色标的位置实现的</p>
+</div>
+<div class="margin-bottom">
+    <p>(6)多颜色平铺条纹</p>
+    <div class="box multi-color-gradient"></div>
+</div>
+<h4>2 垂直条纹</h4>
+<div class="margin-bottom">
+    <div class="box vertical-gradient"></div>
+</div>
+<h4>3 斜向条纹</h4>
+<div class="margin-bottom">
+    <p>(1)初次尝试, 旋转</p>
+    <div class="box try-oblique"></div>
+    <p>这并不是我们想要的效果,并非是一块一块的斜纹</p>
+</div>
+<div class="margin-bottom">
+    <p>(2)把整个重复的背景旋转</p>
+    <div class="box rotate-bg"></div>
+    <p>为了实现此效果,需要多加色标</p>
+</div>
+<div class="margin-bottom">
+    <p>(3)改变斜纹角度</p>
+    <div class="box change-angle"></div>
+    <p>从图上看,并不能直接修改角度达到目的,其中可能要经过复杂的计算或者理解与尝试才能达到想要的效果,那有没有更简单的方法呢?</p>
+</div>
+<div class="margin-bottom">
+    <p>(4)repeating-line-gradient实现任意角度的斜纹背景</p>
+    <div class="box any-angle"></div>
+</div>
+<h4>同色系条纹</h4>
+<div class="margin-bottom">
+    <p>1 指定颜色</p>
+    <div class="box similar-color"></div>
+    <p>代码不够DRY</p>
+</div>
+<div class="margin-bottom">
+    <p>2 更加DRY的方式实现同系条纹背景</p>
+    <div class="box back-gradient"></div>
+</div>
+</body>
+</html>

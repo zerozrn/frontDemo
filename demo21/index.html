@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>边框内圆角</title>
+    <style>
+        .something-meaningful{
+            width: 300px;
+            background: #655;
+            padding: .8em;
+        }
+
+        .something-meaningful > div{
+            background: tan;
+            border-radius: .8em;
+            padding: 1em;
+        }
+
+        .radius{
+            width: 300px;
+            margin-left: 15px;
+            background: tan;
+            border-radius: .8em;
+            padding: 1em;
+            box-shadow: 0 0 0 .4em #655; /*  跟着圆角走,填充outline漏掉的背景,spread>=0.414r */
+            outline: .8em solid #655;    /*  不跟圆角走 */
+        }
+    </style>
+</head>
+<body>
+<h3>边框内圆角</h3>
+<p>场景: 有时我们需要一个容器, 只在内侧有圆角, 而边框或描边的四个角在外部仍然保持直角的形状</p>
+<p>(1)2个元素解决方案</p>
+<div class="something-meaningful">
+    <div>I have a nice subtle inner rounding, don't I look pretty?</div>
+</div>
+<p>(2)1个元素解决方案</p>
+<div class="radius">I have a nice subtle inner rounding, don't I look pretty?</div>
+</body>
+</html>

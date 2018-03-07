@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css定位的初步了解</title>
+    <style>
+        .note{
+            color: red;
+        }
+        .relative-box{
+            height: auto;
+            border: 1px solid #f05a59;
+            margin-bottom: 30px;
+        }
+
+        .box{
+            width: 300px;
+            height: auto;
+            padding: 1em;
+            background-color: #25aacd;
+        }
+
+        .relative-distance{
+            position: relative;
+            left: 50px;
+            bottom: 20px;
+        }
+
+        .relative1{
+            width: 35%;
+        }
+
+        .relative2{
+            border: 1px solid blue;
+        }
+
+        .absolute-body{
+            position: absolute;
+            top: 30px;
+            right: 50px;
+        }
+
+        .absolute-father{
+            position: absolute;
+            top: 20px;
+            right: -290px;
+        }
+
+    </style>
+</head>
+<body>
+<h2>css定位的初步了解</h2>
+<h4>1 相对定位relative</h4>
+<div class="relative-box">
+    <div class="box">relative，这是我本来的位置</div>
+</div>
+<div class="relative-box">
+    <div class="relative-distance box">relative，left:50px;bottom:20px;距离自身原本的左边缘50px，距离自身原来的底部20px，相当于向右平移50px，向上平移20px</div>
+</div>
+<p class="note">注：给其外部加上一个div，并显示边框，是为了表示定位元素原本的位置</p>
+<p>相对定位的元素是相对于自身本来的位置进行定位，依旧会占据它原本所占面积，未脱离文档流。
+    left和top优先级相对地比right和bottom高，若left和right，
+    或者top和bottom同时设置，则前者生效。方位属性可设置负值，设置负值平移方向将背道而驰</p>
+<h4>2 绝对定位absolute</h4>
+<div class="relative-box relative1">
+    我是relative1，我没有定位
+    <div class="relative-box relative2">
+        我是relative2，我也没有定位，所以我们的子元素absolute相对于body进行定位
+        <div class="box absolute-body">
+            <!--
+            验证“absolute的元素，在么有设置width的情况下，其宽度自适应内部元素”的结论
+            <img src="../imgs/bawei.jpg" style="display: block"/>-->
+            absolute，我的父元素没有设置relative，因此我相对于body进行定位</div>
+    </div>
+</div>
+<div class="relative-box relative1" style="position:relative;">
+    我是relative1，我定位了position:relative
+    <div class="relative-box relative2" style="position: static;">
+        我是relative2，我也定位了position:static，但我们的子元素absolute相对于relative进行定位，而不是我
+        <div class="box absolute-father">absolute，我相对于最近的设置了relative的父元素（红色边框）进行定位，top:20px;right:-290px;</div>
+    </div>
+</div>
+<p>绝对定位的元素相对于其已经定位（除去static）的最近的父元素进行定位，若没有已定位的父元素，则相对于body（不管有没有设置定位）进行定位。</p>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css3 width: fit-content使div水平居中</title>
+    <style>
+        .box{
+            background-color: #dcd9d9;
+            margin: 10px auto 20px;
+            padding: 10px;
+            overflow: hidden;
+        }
+
+        .inline-block{
+            display: inline-block;
+        }
+
+        .fit-content{
+            width: -webkit-fit-content;
+            width: -moz-fit-content;
+            width: fit-content;
+        }
+    </style>
+</head>
+<body>
+<h3>css3 width: fit-content使div水平居中</h3>
+<p><strong>1 display: inline-block,居中要靠父元素</strong></p>
+<div class="box inline-block">
+    <img src="../imgs/bawei.jpg"/>
+    <p>display:inline-block居中要靠父元素，而width:fit-content直接margin:auto;</p>
+</div>
+<p><strong>2 width: fit-content联合margin:auto实现水平居中</strong></p>
+<div class="box fit-content">
+    <img  src="../imgs/bawei.jpg"/>
+    <p>display:inline-block居中要靠父元素，而width:fit-content直接margin:auto.</p>
+</div>
+<div>
+    <strong>总结</strong>
+    <p>内部尺寸: fit-content, min-content</p>
+    <p>外部尺寸: fit-available, max-content</p>
+    <p>fit-content: 将元素宽度收缩为内容宽度</p>
+</div>
+</body>
+</html>

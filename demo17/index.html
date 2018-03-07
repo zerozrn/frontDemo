@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css3 width: max-content的理解</title>
+    <style>
+        .box {
+            background-color: #dcd9d9;
+            padding: 10px;
+            margin: 10px 0 30px;
+        }
+
+        .inline-block {
+            display: inline-block;
+        }
+
+        .max-content {
+            width: -weblit-max-content;
+            width: -moz-max-content;
+            width: max-content;
+        }
+    </style>
+</head>
+<body>
+<h3>css3 width: max-content与display:inline-block对比理解</h3>
+<strong>1 display: inline-block(自动换行)</strong>
+<div class="box inline-block">
+    <img src="../imgs/bawei.jpg"/>
+    <p>display:inline-block具有收缩特性,但是,当描述文字超过一行显示的时候,
+        它不会让自己的宽度超过父级容器的可用空间的,但是max-content就不是酱紫,会表现得像设置了
+        white-space:nowrap;一样!
+    </p>
+</div>
+<strong>2 width: max-content(不换行),父级容器宽度会自适应</strong>
+<div class="box max-content">
+    <img  src="../imgs/bawei.jpg"/>
+    <p>display:inline-block具有收缩特性,但是,当描述文字超过一行显示的时候,
+        它不会让自己的宽度超过父级容器的可用空间的,但是max-content就不是酱紫,会表现得像设置了
+        white-space:nowrap;一样!不同的是,white-space:nowrap属性不会使父元素宽度自适应子元素宽度,
+        也就是子元素宽度有可能会超过父元素宽度
+    </p>
+</div>
+<p>max-content: 采用内部元素宽度值最大的那个元素的宽度作为最终容器的宽度</p>
+</body>
+</html>

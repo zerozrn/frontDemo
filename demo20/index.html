@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>灵活的背景定位</title>
+    <style>
+        .box {
+            width: 300px;
+            height: 200px;
+            padding: 15px;
+            color: #fff;
+        }
+
+        .box-position {
+            background: url("../imgs/logo.png") no-repeat bottom right #25aacd; /* 回退方案,浏览器兼容性 */
+            background-position: right 20px bottom 10px; /*  css3扩展语法,指定方向上的偏移量 */
+        }
+
+        .box-origin {
+            /*  background-positon的做法,但是代码不够DRY,若padding更改,那么就要更改3个地方 */
+            /*background: url("../imgs/logo.png")
+            no-repeat bottom right #25aacd;
+            background-position: right 15px bottom 15px;*/ /*  与内边距15px相等 */
+
+            /* background-origin为我们解决了这个问题 */
+            background: url("../imgs/logo.png") no-repeat #25aacd bottom right;
+            background-origin: content-box;
+            /* background-origin: padding-box / border-box / content-box;
+             padding-box: background-position以容器内边距边缘基准偏移
+             border-box: ...以边框边缘基准偏移
+             content-box: ...以内容区边缘基准偏移
+             */
+        }
+
+        .box-calc {
+            background: url("../imgs/logo.png") no-repeat #25aacd;
+            background-position: calc(100% - 20px) calc(100% - 10px);
+        }
+
+        pre, code {
+            font-family: "Courier New";
+            font-size: 16px;
+            line-height: 1.5;
+            background: #dcd9d9;
+            width: 80%;
+        }
+    </style>
+</head>
+<body>
+<h3>灵活的背景定位</h3>
+<p>场景: 很多时候, 我们想针对某个容器某个角对背景图片做偏移定位,
+    如右下角,在CSS2.1中只能针对容器左上角偏移, 若想图片和容器的<br/>
+    边角之间留有一定的缝隙,该如何实现呢?对于尺寸固定的容器,不难,
+    但是容器宽高往往是变化的,这时候就需要css3了.
+</p>
+<p>(1)background-position扩展语法方案</p>
+<div class="box box-position">
+    Code Pirate
+</div>
+<pre>
+    <code>
+        background: url("../imgs/logo.png")
+                    no-repeat bottom right #25aacd; /* 回退方案,浏览器兼容性 */
+        background-position: right 20px bottom 10px;  /*  css3扩展语法,指定方向上的偏移量
+    </code>
+</pre>
+<p>(2)background-origin方案</p>
+<p>场景: 假如偏移量与容器的内边距一致,又该怎么做呢?</p>
+<div class="box box-origin">
+    Code Pirate
+</div>
+<pre>
+    <code>
+        background: url("../imgs/logo.png") no-repeat #25aacd
+                    bottom right;
+        background-origin: content-box;
+    </code>
+</pre>
+<p>(3)calc()函数方案</p>
+<div class="box box-calc">
+    Code Pirate
+</div>
+<pre>
+    <code>
+        background: url("../imgs/logo.png") no-repeat #25aacd;
+        background-position: calc(100% - 20px) calc(100% - 10px);
+    </code>
+</pre>
+</body>
+</html>

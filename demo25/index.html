@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css绝对定位absolute实现未读消息</title>
+    <style>
+        .absolute-msg {
+            border: 1px solid #25aacd;
+        }
+
+        .absolute-msg > img {
+            width: 100px;
+            /*  图片尺寸更改后，span的相对位置并没有改变  */
+            /*width: 200px;*/
+        }
+
+        .absolute-msg > span {
+            position: absolute;
+            /*  未指定top、right、bottom、left时，absolute定位点不变 ，可用margin来实现定位 */
+            margin: -10px 0 0 -20px;
+
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            color: #fff;
+            background-color: red;
+            border-radius: 15px;
+        }
+    </style>
+</head>
+<body>
+<h3>仿照App未读消息显示</h3>
+<div class="absolute-msg">
+    <img src="../imgs/e.png"/>
+    <span>10</span>
+    <a href="#">Hello，absolute</a>
+    <p>哈哈，不影响布局</p>
+</div>
+<p>仿手机App上应用未读消息，这里使用的是absolute，并未指定父元素relative，
+    只要不设置top、right、bottom、left，absolute定位点就是正常文档流位置，请不要更改图片的display属性。</p>
+<p style="color: red;">注意：不设置top、right、bottom、left不等同于top:0;，
+    right:0;，bottom:0;，left:0;，只要设置了四个方位，就会改变absolute的定位点。</p>
+</body>
+</html>
